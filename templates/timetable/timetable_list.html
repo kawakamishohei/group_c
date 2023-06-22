@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>test</title>
+    <title>subject 一覧ページ</title>
 </head>
 <body>
-    <h1>this is hoge page</h1>
+    <h1>時間割 一覧ページ</h1>
+    <div>
+        {% for timetable in timetable_list %}
+            <a href="{% url 'timetable:timetable_detail' timetable.id %}">{{ timetable.day }}</a>
+            <a href="{% url 'timetable:timetable_detail' timetable.id %}">詳細</a>
+            <a href="{% url 'timetable:timetable_update' timetable.id %}">更新</a>
+            <a href="{% url 'timetable:timetable_delete' timetable.id %}">削除</a>
+            <br>
+            <br>
+        {% endfor %}
+    </div>
+    <a href="{% url 'timetable:timetable_create' %}">
+        <input type="submit" value="時間割を作成">
+    </a>
 </body>
 </html>
