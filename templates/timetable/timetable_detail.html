@@ -9,7 +9,12 @@
         <h1>詳細ページ</h1>
         <div>
             <p>日付:{{ timetable.day }}</p>
-            <p>教科:{{ timetable.subject }}</p>
+            <p>１限目:{{ timetable.subject_1 }}</p>
+            <p>２限目:{{ timetable.subject_2 }}</p>
+            <p>３限目:{{ timetable.subject_3 }}</p>
+            <p>４限目:{{ timetable.subject_4 }}</p>
+            <p>５限目:{{ timetable.subject_5 }}</p>
+            <p>６限目:{{ timetable.subject_6 }}</p>
             <p>必要物リスト：<br>
                 {{ timetable.text | linebreaksbr }}
             </p>
