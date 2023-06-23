@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+  {% load static %}
+  <html lang="ja">
+  <head>
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+      <title>{% block title %}(仮称)小学生専用Webサイト{% endblock %}</title>
+  </head>
+  <body>
+      <div id="content">
+        {% block content %}{% endblock %}
+      </div>
+  </body>
+  </html>
