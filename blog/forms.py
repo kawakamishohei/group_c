@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Tag, Article,Comment
+from .models import Tag, Kiji,Comment
 
 
 class TagCreateForm(forms.ModelForm):
@@ -9,9 +9,9 @@ class TagCreateForm(forms.ModelForm):
         fields = ('name',)
 
 
-class ArticleCreateForm(forms.ModelForm):
+class KijiCreateForm(forms.ModelForm):
     class Meta:
-        model = Article
+        model = Kiji
         fields = ('title', 'text', 'created_at', 'category', 'tags',)
 
 
@@ -21,9 +21,9 @@ class CommentCreateForm(forms.ModelForm):
         fields = ('name', 'text')
 
 
-class ArticleUpdateForm(forms.ModelForm):
+class KijiUpdateForm(forms.ModelForm):
     class Meta:
-        model = Article
+        model = Kiji
         fields = ('title', 'text', 'created_at', 'category', 'tags',)
 
 
