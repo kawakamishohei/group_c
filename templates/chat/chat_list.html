@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>チャットだよ</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
+
 <h1>トーク一覧</h1>
 <!--<form action="" method="GET">-->
 <!--  {{ form.as_div }}-->
@@ -13,8 +9,8 @@
     {% for chat in chat_list %}
       <p>
           <a href="{% url 'chat:chat_detail' chat.pk %}">{{ chat.title }}</a>
-
       </p>
     {% endfor %}
-</body>
-</html>
+<hr>
+<a href="{% url 'chat:chat_create' %}">おはなしをつくる</a>
+{% endblock %}
