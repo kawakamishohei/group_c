@@ -16,7 +16,7 @@ class Tag(models.Model):
         return self.name
 
 
-class Article(models.Model):
+class Kiji(models.Model):
     title = models.CharField('タイトル', max_length=255)
     text = models.TextField('本文')
     created_at = models.DateTimeField('作成日', default=timezone.now)
@@ -33,7 +33,7 @@ class Comment(models.Model):
     name = models.CharField('名前', default='名無し',max_length=100)
     text = models.TextField('コメント内容')
     target = models.ForeignKey(
-        Article, on_delete=models.SET_NULL,
+        Kiji, on_delete=models.SET_NULL,
         blank=True, null=True,
         verbose_name='紐づく記事'
     )

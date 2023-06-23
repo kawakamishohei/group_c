@@ -3,14 +3,14 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
-from .forms import SearchForm, ArticleCreateForm, CommentCreateForm, TagCreateForm, ArticleUpdateForm
-from .models import Article, Comment, Tag
+from .forms import SearchForm, KijiCreateForm, CommentCreateForm, TagCreateForm, KijiUpdateForm
+from .models import Kiji, Comment, Tag
 
 
 class Home(generic.ListView):
-    model = Article
+    model = Kiji
     template_name = 'blog/home.html'
-    queryset = Article.objects.all().order_by('-created_at')
+    queryset = Kiji.objects.all().order_by('-created_at')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -37,22 +37,22 @@ class TagCreateView(generic.CreateView):
     form_class = TagCreateForm
 
 
-class ArticleCreateView(generic.CreateView):
-    model = Article
-    template_name = 'blog/article_create.html'
+class KijiCreateView(generic.CreateView):
+    model = Kiji
+    template_name = 'blog/kiji_create.html'
     success_url = reverse_lazy('blog:home')
-    form_class = ArticleCreateForm
+    form_class = KijiCreateForm
 
 
-class ArticleUpdate(generic.UpdateView):
-    model = Article
-    form_class = ArticleUpdateForm
-    template_name = 'blog/article_update.html'
+class KijiUpdate(generic.UpdateView):
+    model = Kiji
+    form_class = KijiUpdateForm
+    template_name = 'blog/kiji_update.html'
     success_url = reverse_lazy('blog:home')
 
-class ArticleDelete(generic.DeleteView):
-    model = Article
-    template_name = 'blog/article_delete.html'
+class KijiDelete(generic.DeleteView):
+    model = Kiji
+    template_name = 'blog/kiji_delete.html'
     success_url = reverse_lazy('blog:home')
 
 
@@ -70,7 +70,7 @@ class CommentCreateView(generic.CreateView):
         # Commentモデルの、targetフィールドをここで埋める
         # モデル名.objects.get(フィールド=値)  1つだけ、DBから取り出すのに使うのがget
         # url内の<int:pk>は、self.kwargs['pk'] で取得できる
-        comment.target = Article.objects.get(pk=self.kwargs['pk'])
+        comment.target = Kiji.objects.get(pk=self.kwargs['pk'])
 
         comment.save()  # saveしないと保存されない
         return redirect('blog:home')

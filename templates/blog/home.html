@@ -5,39 +5,44 @@
     <title>（仮称）小学生専用Webサイト</title>
 </head>
 <body>
-<div align="center">
+
 {% extends 'base.html' %}
 {% block content %}
 
-
+<div align="center">
 <form action ="" method=""GET>
     {{ form.as_div }}<button type="submit">検索</button>
 </form>
-
+<h1>おしらせ</h1>
 <!--for articleのarticleが下のarticle.tags.allのarticleと対応してる-->
-{% for article in article_list %}
-    {{ article.title }}</a> / {{ article.created_at }}
+{% for kiji in kiji_list %}
+    {{ kiji.title }}</a> / {{ kiji.created_at }}
 <!--コンテキスト使わないで表示-->
-{% for tag in article.tags.all %}
+{% for tag in kiji.tags.all %}
     {{ tag.name }}
 {% endfor %}
-{% for comment in article.comment_set.all %}
+{% for comment in kiji.comment_set.all %}
 <div>
     {{ comment.name }}
     {{ comment.text }}
 </div>
 {% endfor %}
 <p>
-<a href="{% url 'blog:article_update' article.pk %}">編集</a>
-<a href="{% url 'blog:article_delete' article.pk %}">削除</a>
-<a href="{% url 'blog:comment_create' article.pk %}">コメント</a>
+<a href="{% url 'blog:kiji_update' kiji.pk %}">編集</a>
+<a href="{% url 'blog:kiji_delete' kiji.pk %}">削除</a>
+<a href="{% url 'blog:comment_create' kiji.pk %}">コメント</a>
 </p>
 {% endfor %}
 <p>
-<a href="{% url 'blog:article_create' %}">記事作成</a>
+<a href="{% url 'blog:kiji_create' %}">記事作成</a>
 </p>
+    <h1>MENU</h1>
+    <a href="{% url 'chat:chat_list' %}">chatlist</a>
+    <a href="{% url 'homework:homework' %}">homeworklist</a>
+    <a href="{% url 'timetable:timetable_list' %}">timetablelist</a>
+</div>
 {% endblock %}
 
-</div>
+
 </body>
 </html>
