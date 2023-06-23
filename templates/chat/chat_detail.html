@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
+
     <h1>{{ chat.title }}</h1>
     <p>{{ chat.text }}</p>
     <p>{{ chat.created_at|date:'Y/m/d'}}</p>
@@ -16,6 +12,14 @@
     </p>
     <hr>
 
-
-</body>
-</html>
+{% for comment in chat.comment_set.all %}
+    <div>
+        <p>{{ comment.name }}</p>
+        <p>{{ comment.text | linebreaks }}</p>
+    </div>
+    <hr>
+{% endfor %}
+<a href="{% url 'chat:comment_create' chat.id %}">コメント作成ページへ</a>
+    <hr>
+<a href="{% url 'chat:chat_list' %}">いちらんにもる</a>
+{% endblock %}

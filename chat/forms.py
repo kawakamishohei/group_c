@@ -1,5 +1,5 @@
 from django import forms
-from .models import Chat
+from .models import Chat, Comment
 
 
 class ChatCreateForm(forms.ModelForm):
@@ -17,7 +17,7 @@ class ChatUpdateForm(forms.ModelForm):
 # class SearchForm(forms.Form):
 #     keyword = forms.CharField(label='キーワード', required=False)
 
-# class CommentCreateForm(forms.ModelForm):
-#     class Meta:
-#         model = Comment
-#         fields = ('name','text',) # targetフィールドを含めない
+class CommentCreateForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('name','text',) # targetフィールドを含めない
