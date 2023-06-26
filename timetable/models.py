@@ -17,5 +17,14 @@ class Timetable(models.Model):
     SixthPeriod = models.ForeignKey(Subject, on_delete=models.PROTECT, verbose_name='6限', related_name='SixthPeriod', default=6)
     text = models.TextField('必要な物リスト')   #TextField : 複数行のテキスト入力行になる
 
+    class Meta:
+        ordering = ('day',) #dayで昇順ソート
+
     def __str__(self):
         return str(self.day)    #strでint型からstr型に変換
+
+class Lunchmenu(models.Model):
+    day = models.DateField('日付', default=timezone.now)  # timezone.now：現在時間の取得
+    image = models.ImageField('献立画像', null=True, blank=True, upload_to='goods_images/')
+    menu = models.TextField('献立', default='1')
+    explain = models.TextField('説明', default='1')  # TextField : 複数行のテキスト入力行になる
