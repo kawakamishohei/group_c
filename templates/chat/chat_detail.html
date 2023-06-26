@@ -2,14 +2,21 @@
 {% block content %}
 
     <h1>{{ chat.title }}</h1>
-    <p>{{ chat.image }}</p>
+    <p>投稿者：{{ chat.upname }}</p>
+    {% if object.image %}
+    <img class="chat-image" src="{{ chat.image.url }}/">
+    {% endif %}
     <p>{{ chat.text }}</p>
-    <p>{{ chat.created_at|date:'Y/m/d'}}</p>
-    <p>{{ chat.category }}</p>
+    <p>投稿日：{{ chat.created_at|date:'Y/m/d/G:i'}}</p>
+    <p>カテゴリー：{{ chat.category }}</p>
     <p>
+        タグ：
         {% for tag in chat.tags.all %}
             {{ tag.name }}
         {% endfor %}
+    </p>
+    <p>
+        <a href="{% url 'chat:chat_delete' chat.pk %}">この投稿を削除する</a>
     </p>
     <hr>
 
@@ -20,7 +27,8 @@
     </div>
     <hr>
 {% endfor %}
-<a href="{% url 'chat:comment_create' chat.id %}">コメント作成ページへ</a>
+
+<a href="{% url 'chat:comment_create' chat.id %}">コメントをする</a>
     <hr>
 <a href="{% url 'chat:chat_list' %}">いちらんにもる</a>
 {% endblock %}
