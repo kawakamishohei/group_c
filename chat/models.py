@@ -16,6 +16,7 @@ class Tag(models.Model):
 
 class Chat(models.Model):
     title = models.CharField('タイトル', max_length=255)
+    upname = models.CharField('名前', default='名無し', max_length=255)
     text = models.TextField('本文')
     created_at = models.DateTimeField('作成日', default=timezone.now)
     category = models.ForeignKey(Category, blank=True, null=True,on_delete=models.PROTECT, verbose_name='カテゴリ')

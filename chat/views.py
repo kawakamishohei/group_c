@@ -30,3 +30,10 @@ class CommentCreateView(generic.CreateView):
         comment.target = chat
         form.save()
         return redirect('chat:chat_detail',pk = chat.pk)
+
+class GoodsDelete(generic.DeleteView):
+    # フォームは必要なし
+    model = Chat
+    template_name = 'chat/chat_delete.html'
+    success_url = reverse_lazy('chat:chat_list')
+
