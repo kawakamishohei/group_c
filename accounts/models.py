@@ -8,4 +8,9 @@ class CustomUser(AbstractUser):
 
     REQUIRED_FIELDS = ['age']
 
+class UserAge(models.Model):
+    name = models.CharField('年齢', max_length=255)
+
+    def __str__(self):
+        return self.name
 # Create your models here.

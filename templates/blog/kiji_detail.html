@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>記事詳細ページ</h1>
+<p>記事のタイトル {{ kiji.title }}</p>
+<p>本文 {{ kiji.text }}</p>
+<p>作成日 {{ kiji.created_at }}</p>
+<p>タグ
+
+<!--コンテキスト使わないで表示したやつ-->
+    {% for tag in kiji.tags.all %}
+        {{ tag.name }}
+    {% endfor %}
+
+<!--&lt;!&ndash;コンテキストで表示したやつ&ndash;&gt;-->
+<!--    {% for tag in tags %}-->
+<!--        {{ tag.name }}-->
+<!--    {% endfor %}-->
+
+</p>
+<p>カテゴリ {{ kiji.category.name }}</p>
+<h1>コメント欄</h1>
+{% for comment in kiji.comment_set.all %}
+<div>
+    {{ comment.name }}
+    {{ comment.text }}
+</div>
+{% endfor %}
+<a href="{% url 'blog:comment_create' kiji.pk %}">コメント作成</a>
+{% endblock %}

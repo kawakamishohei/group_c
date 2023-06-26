@@ -2,11 +2,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div align="center">
 <h2>ログインページ</h2>
 <form method="post" action="">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" id="save" value="ログイン">
 </form>
+</div>
 {% endblock %}
 </body>

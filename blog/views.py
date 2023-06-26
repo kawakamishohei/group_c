@@ -2,10 +2,10 @@ from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
-
+from django.shortcuts import redirect
 from .forms import SearchForm, KijiCreateForm, CommentCreateForm, TagCreateForm, KijiUpdateForm
 from .models import Kiji, Comment, Tag
-
+from accounts.models import CustomUser
 
 class Home(generic.ListView):
     model = Kiji
@@ -30,6 +30,24 @@ class Home(generic.ListView):
         return queryset
 
 
+class KijiDetailView(generic.DetailView):
+    model = Kiji
+    template_name = 'blog/kiji_detail.html'
+
+    def get_object(self, queryset=None):
+        # self.kwargsは、URL内の int:pkといった部分が入っている
+        kiji = Kiji.objects.get(pk=self.kwargs['pk'])
+        # →Staff.objects.get(pk=1)  # 今回、URLは/staff_detail/1/
+        # →Staff.objects.get(id=1)  # pkというのは、primarykeyのこと。今回ならidフィールドのこと
+        return kiji
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        kiji = self.get_object()
+        context['tags'] = kiji.tags.all()
+        return context
+
+
 class TagCreateView(generic.CreateView):
     model = Tag
     template_name = 'blog/tag_create.html'
@@ -45,10 +63,16 @@ class KijiCreateView(generic.CreateView):
 
 
 class KijiUpdate(generic.UpdateView):
+
+    # if(CustomUser.age == 19):
+    #     print('aaa')
     model = Kiji
     form_class = KijiUpdateForm
     template_name = 'blog/kiji_update.html'
     success_url = reverse_lazy('blog:home')
+    # else:
+    #     print('aaaa')
+    #     redirect('blog/home')
 
 class KijiDelete(generic.DeleteView):
     model = Kiji
