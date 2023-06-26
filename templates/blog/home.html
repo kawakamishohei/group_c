@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>（仮称）小学生専用Webサイト</title>
-</head>
-<body>
-
 {% extends 'base.html' %}
 {% block content %}
 
@@ -16,7 +8,7 @@
 <h1>おしらせ</h1>
 <!--for articleのarticleが下のarticle.tags.allのarticleと対応してる-->
 {% for kiji in kiji_list %}
-    {{ kiji.title }}</a> / {{ kiji.created_at }}
+    <h1>{{ kiji.title }}</h1>  {{ kiji.text | truncatechars:20 }} / {{ kiji.created_at }}
 <!--コンテキスト使わないで表示-->
 {% for tag in kiji.tags.all %}
     {{ tag.name }}
@@ -42,7 +34,3 @@
     <a href="{% url 'timetable:timetable_list' %}">timetablelist</a>
 </div>
 {% endblock %}
-
-
-</body>
-</html>
