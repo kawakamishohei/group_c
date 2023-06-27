@@ -18,7 +18,7 @@ class KijiCreateForm(forms.ModelForm):
 class CommentCreateForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ('name', 'text')
+        fields = ('name','text',)
 
 
 class KijiUpdateForm(forms.ModelForm):

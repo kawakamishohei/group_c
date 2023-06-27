@@ -1,0 +1,14 @@
+div.block_a {
+   float: left;
+   width: 20%;
+}
+div.block_b{
+   float: left;
+   width: 50%;
+   align-items: center;
+   justify-content: center;
+}
+div.block_c{
+   float: left;
+   width: 30%;
+}

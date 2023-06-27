@@ -3,9 +3,10 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 from django.shortcuts import redirect
+from django.contrib.auth.models import User
 from .forms import SearchForm, KijiCreateForm, CommentCreateForm, TagCreateForm, KijiUpdateForm
 from .models import Kiji, Comment, Tag
-from accounts.models import CustomUser
+
 
 class Home(generic.ListView):
     model = Kiji
@@ -28,6 +29,13 @@ class Home(generic.ListView):
             # 記事タイトルか本文のどちらかにキーワードが含まれていれば表示
             queryset = queryset.filter(Q(title__icontains=keyword) | Q(text__icontains=keyword))
         return queryset
+
+    def users(request, user_age):
+        user = get_object_or_404(User, pk=user_age)
+        context2 = {
+            'user': user,
+        }
+        return context2
 
 
 class KijiDetailView(generic.DetailView):
@@ -63,16 +71,13 @@ class KijiCreateView(generic.CreateView):
 
 
 class KijiUpdate(generic.UpdateView):
-
-    # if(CustomUser.age == 19):
-    #     print('aaa')
     model = Kiji
     form_class = KijiUpdateForm
     template_name = 'blog/kiji_update.html'
     success_url = reverse_lazy('blog:home')
-    # else:
-    #     print('aaaa')
-    #     redirect('blog/home')
+
+
+
 
 class KijiDelete(generic.DeleteView):
     model = Kiji
@@ -86,16 +91,20 @@ class CommentCreateView(generic.CreateView):
     success_url = reverse_lazy('blog:home')
     form_class = CommentCreateForm
 
+
     def form_valid(self, form):
         # form.save(commit=False) データベースにはまだ保存しない
         # commit=Falseビューで、モデルのフィールドを埋めるために使う引数
         comment = form.save(commit=False)
-
         # Commentモデルの、targetフィールドをここで埋める
         # モデル名.objects.get(フィールド=値)  1つだけ、DBから取り出すのに使うのがget
         # url内の<int:pk>は、self.kwargs['pk'] で取得できる
         comment.target = Kiji.objects.get(pk=self.kwargs['pk'])
-
         comment.save()  # saveしないと保存されない
         return redirect('blog:home')
+
+    def get_initial(self):
+        initial = {}
+        initial['name'] = self.request.user.username
+        return initial
 # Create your views here.
