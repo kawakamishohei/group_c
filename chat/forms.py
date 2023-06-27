@@ -21,3 +21,6 @@ class CommentCreateForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('name','text',) # targetフィールドを含めない
+
+class SearchForm(forms.Form):
+    keyword = forms.CharField(label='キーワード', required=False)
