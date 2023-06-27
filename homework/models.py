@@ -8,3 +8,6 @@ class Post(models.Model):
     text = models.TextField('内容')
     def __str__(self):
         return self.name
+
+class Homework(models.Model):
+    image = models.ImageField('宿題', blank=True, null=True, upload_to='homework_images/')

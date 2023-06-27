@@ -8,6 +8,10 @@
         <th>内容</th>
         <td>{{ form.text }}</td>
       </tr>
+      <tr>
+          <th>日付</th>
+          <td>{{ form.date }}</td>
+      </tr>
   </table>
   <button type="submit" class="btn btn-primary">送信</button>
   {% csrf_token %}
