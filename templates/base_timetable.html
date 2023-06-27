@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<!--  {% load static %}-->
+  <html lang="ja">
+  <head>
+      <link rel="icon" type="image/png" href="{% static 'icon/favicon.ico' %}">
+      <link rel="stylesheet" href="{% static 'css/basic.css' %}">
+      <title>{% block title %}時間割機能{% endblock %}</title>
+  </head>
+  <body>
+      <p><a href="{% url 'timetable:timetable_list' %}">時間割一覧ページへ</a>
+      <a href="{% url 'timetable:subject_list' %}">教科一覧ページへ</a>
+      <div id="content">
+<!--    継承するときは「block ●●」というように必ず書く-->
+        {% block content %}{% endblock %}
+      </div>
+  </body>
+  </html>

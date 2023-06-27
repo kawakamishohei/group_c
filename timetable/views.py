@@ -1,9 +1,10 @@
 from django.http import HttpResponse
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
-from .models import Timetable, Subject, Lunchmenu
-from .forms import TimetableCreateForm, SubjectCreateForm, TimetableUpdateForm, LunchmenuCreateForm
+from .models import Timetable, Subject
+from .forms import TimetableCreateForm, SubjectCreateForm, TimetableUpdateForm
 
 # class Test(TemplateView):
 #     template_name = 'timetable/test.html'
@@ -44,18 +45,24 @@ class SubjectListView(ListView):
     template_name = 'timetable/subject_list.html'
 
 class LunchmenuDetailview(DetailView):
-    model = Lunchmenu
+    model = Timetable
     template_name = 'timetable/lunchmenu_detail.html'
-
-class LunchmenuCreateView(CreateView):
-    model = Lunchmenu
-    form_class = LunchmenuCreateForm
-    template_name = 'timetable/lunchmenu_create.html'
-    success_url = reverse_lazy('timetable:lunchmenu_create')
-
-class LunchmenuListView(ListView):
-    model = Lunchmenu
-    template_name = 'timetable/Lunchmenu_list.html'
+#
+# class LunchmenuCreateView(CreateView):
+#     model = Lunchmenu
+#     form_class = LunchmenuCreateForm
+#     template_name = 'timetable/lunchmenu_create.html'
+#     success_url = reverse_lazy('timetable:lunchmenu_list')
+#
+#     # def form_valid(self, form):
+#     #     lunchmenu = form.save(commit=False)  # データベースには保存しない
+#     #     lunchmenu.target = Timetable.objects.get(pk=self.kwargs['pk'])
+#     #     lunchmenu.save()
+#     #     return redirect('timetable:lunchmenu_create')
+#
+# class LunchmenuListView(ListView):
+#     model = Lunchmenu
+#     template_name = 'timetable/Lunchmenu_list.html'
 
 
 

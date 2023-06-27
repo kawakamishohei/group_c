@@ -14,8 +14,9 @@ urlpatterns =[
     path('timetable_update/<int:pk>/', views.TimetableUpdateView.as_view(), name='timetable_update'),
     path('subject_create/', views.SubjectCreateView.as_view(), name='subject_create'),
     path('subject_list/', views.SubjectListView.as_view(), name='subject_list'),
-    path('lunchmenu_create/', views.LunchmenuCreateView.as_view(), name='lunchmenu_create'),
-    path('lunchmenu_list/', views.LunchmenuListView.as_view(), name='lunchmenu_list'),
+    # path('lunchmenu_create/', views.LunchmenuCreateView.as_view(), name='lunchmenu_create'),
+    # path('lunchmenu_create/<int:pk>', views.LunchmenuCreateView.as_view(), name='lunchmenu_create'),
+    # path('lunchmenu_list/', views.LunchmenuListView.as_view(), name='lunchmenu_list'),
     path('lunchmenu_detail/<int:pk>/', views.LunchmenuDetailview.as_view(), name='lunchmenu_detail'),
 ]
 

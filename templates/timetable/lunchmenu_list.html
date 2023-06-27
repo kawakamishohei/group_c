@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h2>商品リスト</h2>
-    <a href="{% url 'crud:goods_create' %}">作成</a>
-    {% for goods in lunchmenu_list %}
-      {% if goods.state_flag %}
-        <p>{{ goods.name }}/<a href="{% url 'crud:goods_detail' goods.id %}">詳細</a></p>
-      {% endif %}
+{% extends 'base_timetable.html' %}
+{% block content %}
+<h2>給食の献立リスト</h2>
+    <a href="{% url 'timetable:lunchmenu_create' %}">作成</a>
+    {% for menu in lunchmenu_list %}
+        <a href="{% url 'timetable:lunchmenu_detail' menu.id %}">{{ menu.day }}</a>
     {% endfor %}
-</body>
-</html>
+{% endblock %}

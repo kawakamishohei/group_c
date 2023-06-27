@@ -1,28 +1,23 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base_timetable.html' %}
+{% block content %}
     <div>
-        <h1>詳細ページ</h1>
+        <h1>{{ timetable.day }}の時間割</h1>
         <div>
-            <p>日付:{{ timetable.day }}</p>
+            <p>朝の会</p>
             <p>１限目:{{ timetable.FirstPeriod }}</p>
             <p>２限目:{{ timetable.SecondPeriod }}</p>
             <p>３限目:{{ timetable.ThirdPeriod }}</p>
             <p>４限目:{{ timetable.FourthPeriod }}</p>
+            <p>給食</p>
+            <p>昼休み</p>
             <p>５限目:{{ timetable.FifthPeriod }}</p>
             <p>６限目:{{ timetable.SixthPeriod }}</p>
+            <p>掃除</p>
+            <p>終わりの会</p>
             <p>必要物リスト：<br>
                 {{ timetable.text | linebreaksbr }}
             </p>
-            <p>
-                <a href="{% url 'timetable:lunchmenu_detail' timetable.id %}">今日の給食の献立</a>
-            </p>
         </div>
     </div>
-    <a href="{% url 'timetable:timetable_list' %}">時間割一覧ページへ</a>
-</body>
-</html>
+    <a href="{% url 'timetable:lunchmenu_detail' timetable.id %}">今日の給食の献立</a>
+{% endblock %}

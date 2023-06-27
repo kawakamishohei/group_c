@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h2>\{{ object.day }}の献立/</h2>
+{% extends 'base_timetable.html' %}
+{% block content %}
+    <h2>{{ object.day }}の献立</h2>
     {% if object.image %}
-      <p>商品画像:</p><img src="{{ object.image.url }}/">
+      <p>給食画像:</p><img src="{{ object.image.url }}">
     {% endif %}
-    <p>内容:{{ object.management_code }}</p>
-    <p>説明:{{ object.price }}</p>
-</body>
-</html>
+    <p>内容:<br>
+        {{ object.menu | linebreaksbr }}</p>
+    <p>説明:{{ object.explain | linebreaksbr }}</p>
+{% endblock %}

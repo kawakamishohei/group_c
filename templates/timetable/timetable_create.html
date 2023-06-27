@@ -2,11 +2,11 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>時間割作成ページ</title>
+    <title>時間割&献立作成ページ</title>
 </head>
 <body>
-  <h1>時間割作成ページ</h1>
-  <form action="" method="POST">
+  <h1>時間割&献立作成ページ</h1>
+  <form action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_div }}
     <button type="submit">送信</button>
