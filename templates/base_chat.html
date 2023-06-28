@@ -6,21 +6,22 @@
       <title>{% block title %}(仮称)小学生専用Webサイト{% endblock %}</title>
   </head>
   <body>
-  <header>
-    <h1 class="title">タイトル</h1>
-    <nav class="nav">
-      <ul class="menu-group">
-        <li class="menu-item"><a href="#">項目1</a></li>
-        <li class="menu-item"><a href="#">項目2</a></li>
-        <li class="menu-item"><a href="#">項目3</a></li>
-        <li class="menu-item"><a href="#">項目4</a></li>
-        <li class="menu-item"><a href="#">項目5</a></li>
-      </ul>
-    </nav>
-  </header>
+      <header>
+        <h1 class="title">タイトル</h1>
+        <nav class="nav">
+            <h2 class="menu-item"><a href="{% url 'blog:home' %}">トップページ</a></h2>
+            <h2 class="menu-item"><a href="{% url 'chat:chat_list' %}">チャット</a></h2>
+            <h3 class="menu-item"><a href="{% url 'chat:chat_create' %}">はなしをつくる</a></h3>
+            <h2 class="menu-item"><a href="{% url 'homework:homework' %}">しゅくだい</a></h2>
+            <h2 class="menu-item"><a href="{% url 'timetable:timetable_list' %}">じかんわり</a></h2>
+            <h3 class="menu-item"><a href="{% url 'timetable:timetable_create' %}">じかんわり作成</a></h3>
+        </nav>
+      </header>
 
-    <div class="content">
-        {% block content %}{% endblock %}
-    </div>
+      <div class="main">
+          {% block content %}{% endblock %}
+      </div>
+<div class="rightside-contents">
+</div>
   </body>
   </html>

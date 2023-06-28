@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base_chat.html' %}
 {% block content %}
 
     <h1>{{ chat.title }}</h1>
@@ -29,13 +29,14 @@
 {% endfor %}
 
 <!-- コメント機能 -->
-<form action="" method="POST">
-  {% csrf_token %}
-  {{ form.as_div }}
-  <button type="submit">送信</button>
-</form>
+<div class="rightside-contents-form">
+    <form action="" method="POST">
+      {% csrf_token %}
+      {{ form.as_div }}
+      <button type="submit">送信</button>
+    </form>
+</div>
 <!-- ここまで -->
 
-    <hr>
-<a href="{% url 'chat:chat_list' %}">いちらんにもる</a>
+<!--<a href="{% url 'chat:chat_list' %}">いちらんにもる</a>-->
 {% endblock %}
