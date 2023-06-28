@@ -1,6 +1,6 @@
 {% extends 'base_chat.html' %}
 {% block content %}
-  <h1>時間割&給食の献立作成ページ</h1>
+  <h1>時間割 & 給食の献立作成ページ</h1>
   <form action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_div }}

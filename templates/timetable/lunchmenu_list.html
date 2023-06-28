@@ -1,6 +1,6 @@
 {% extends 'base_chat.html' %}
 {% block content %}
-<h2>給食の献立リスト</h2>
+<h2>きゅうしょくのこんだてリスト</h2>
     <a href="{% url 'timetable:lunchmenu_create' %}">作成</a>
     {% for menu in lunchmenu_list %}
         <a href="{% url 'timetable:lunchmenu_detail' menu.id %}">{{ menu.day }}</a>
