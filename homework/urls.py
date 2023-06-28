@@ -9,6 +9,6 @@ urlpatterns = [
     path('homework_create/', views.PostCreateView.as_view(), name='homework_create'),
     path('homework_student/', views.StudentCreateView.as_view(), name='homework_student'),
     path('homework_teacher/', views.TeacherListView.as_view(), name='homework_teacher'),
-
+    path('homework_delete/<int:pk>/', views.HomeworkDeleteView.as_view(), name='homework_delete'),
 ]
 

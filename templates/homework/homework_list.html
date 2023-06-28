@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base_chat.html' %}
+
+{% block content %}
 <h1>こんしゅうのしゅくだい</h1>
 <table class="table">
   <thead>
@@ -16,6 +12,9 @@
   </thead>
   <tbody>
     {% for post in post_list %}
+    {% if user.age > 17 %}
+    <a href="{% url 'homework:homework_delete' post.pk %}">削除</a>
+    {% endif %}
     <tr>
       <td>{{ post.date }}</td>
       <td>{{ post.title }}</td>
@@ -24,5 +23,4 @@
     {% endfor %}
   </tbody>
 </table>
-</body>
-</html>
+{% endblock %}

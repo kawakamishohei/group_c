@@ -31,3 +31,15 @@ class TeacherListView(generic.ListView):
     model = Homework
     template_name = 'homework/homework_teacher.html'
     success_url = reverse_lazy('homework:homework_teacher')
+
+    def users(request, user_age):
+        user = get_object_or_404(User, pk=user_age)
+        context2 = {
+            'user': user,
+        }
+        return context2
+
+class HomeworkDeleteView(generic.DeleteView):
+    model = Homework
+    template_name = 'homework/homework_delete.html'
+    success_url = reverse_lazy('homework:homework_list')
