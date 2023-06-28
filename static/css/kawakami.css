@@ -1,31 +1,11 @@
-div.block_a {
-   float: left;
-   width: 20%;
+.nico {
+  font-family: "Nico Moji";
+  font-size: 30px;
 }
-div.block_b{
-   float: left;
-   width: 50%;
-   align-items: center;
-   justify-content: center;
+.kokoro{
+  font-family: "Kokoro";
+  font-size: 30px;
 }
-div.block_c{
-   float: left;
-   width: 30%;
-}
-.size-button {
-  background-color: #fff;
-  border: 1px solid #999;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 1rem;
-  line-height: 1;
-  padding: 11px;
-  text-align: center;
-  width: 40px;
-
-  &:hover,
-  &.active {
-    background-color: #AE2823;
-    color: #fff;
-  }
+h1 {
+  font-family: "Nico Moji";
 }

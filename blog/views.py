@@ -25,7 +25,7 @@ class Home(generic.ListView):
         kaisuu = q.access_no + 1
         q.access_no = kaisuu
         q.save()
-        access_text = str(kaisuu) + '回目のアクセス'
+        access_text = str(kaisuu) + 'かいめのアクセス'
         context['access_text'] = access_text
         return context
 

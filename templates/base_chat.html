@@ -2,6 +2,8 @@
   {% load static %}
   <html lang="ja">
   <head>
+      <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet">
       <link rel="stylesheet" href="{% static 'css/style_chat.css' %}">
       <link rel="stylesheet" href="{% static 'css/kawakami.css' %}">
       <link rel="stylesheet" href="{% static 'css/yasu.css' %}">
@@ -18,7 +20,6 @@
             <h3 class="menu-item"><a href="{% url 'chat:chat_create' %}">はなしをつくる</a></h3>
             <h2 class="menu-item"><a href="{% url 'homework:homework_list' %}">しゅくだい</a></h2>
             <h2 class="menu-item"><a href="{% url 'timetable:timetable_list' %}">じかんわり</a></h2>
-            <h3 class="menu-item"><a href="{% url 'timetable:timetable_create' %}">じかんわり作成</a></h3>
         </nav>
       </header>
 

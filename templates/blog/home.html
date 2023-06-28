@@ -1,17 +1,25 @@
 {% extends 'base_chat.html' %}
 {% block content %}
-<div class="block_a">
-    <div style="display:inline-flex">
+<div align="center">
+    {% if user.age < 18 %}
+    <div class ="nico">
+    きみが{{ access_text }}だよ！
         <form action ="" method=""GET>
-            {{ form.as_div }}<button type="submit">けんさく</button>
+            {{ form.as_div }}<button type="submit" class="nico">けんさく</button>
         </form>
     </div>
-</div>
-<div class="block_b">
-    <div align="center">
+    {% endif %}
+    {% if user.age > 17 %}
+    <div class ="kokoro">
+    君が{{ access_text }}だよ！
+        <form action ="" method=""GET>
+            {{ form.as_div }}<button type="submit" class="kokoro">検索</button>
+        </form>
+    </div>
+    {% endif %}
+
 <h1>おしらせ</h1>
-
-
+<div class ="kokoro">
 {% for kiji in kiji_list %}
     <h1><a href="{% url 'blog:kiji_detail' kiji.pk %}">{{ kiji.title }}</a></h1>  {{ kiji.text | truncatechars:20 }} / {{ kiji.created_at }}
 <!--コンテキスト使わないで表示-->
@@ -32,26 +40,12 @@
 <a href="{% url 'blog:comment_create' kiji.pk %}">コメント</a>
 </p>
 {% endfor %}
-<p>
-</div>
-    </div>
-<div class="block_c">
-
 </p>
+</div>
     <h1>MENU</h1>
     {% if user.age > 17 %}
     <a href="{% url 'blog:kiji_create' %}">とうこう</a>
     {% endif %}
-    <a href="{% url 'chat:chat_list' %}">chatlist</a>
-    <a href="{% url 'homework:homework' %}">homeworklist</a>
-    <a href="{% url 'timetable:timetable_list' %}">timetablelist</a>
-    <a href="{% url 'accounts:logout' %}">Logout</a>
-    {{ access_text }}
-    文字サイズ
-    <script src="/static/js/kawakami.js"></script>
-    <button class="size-button" data-font="12">小</button>
-    <button class="size-button active" data-font="16">中</button>
-    <button class="size-button" data-font="20">大</button>
-</div>
 
+</div>
 {% endblock %}
