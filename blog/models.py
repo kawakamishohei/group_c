@@ -47,4 +47,7 @@ class Comment(models.Model):
     def __str__(self):
         return self.text[:15]
 
-# Create your models here.
+
+class Access(models.Model):
+    access_no = models.PositiveIntegerField(blank=True,null=True)
+

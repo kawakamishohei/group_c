@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base_chat.html' %}
 {% block content %}
 <div class="block_a">
     <div style="display:inline-flex">
@@ -36,13 +36,22 @@
 </div>
     </div>
 <div class="block_c">
-    {% if user.age > 17 %}
-<a href="{% url 'blog:kiji_create' %}">とうこう</a>
-    {% endif %}
+
 </p>
     <h1>MENU</h1>
+    {% if user.age > 17 %}
+    <a href="{% url 'blog:kiji_create' %}">とうこう</a>
+    {% endif %}
     <a href="{% url 'chat:chat_list' %}">chatlist</a>
     <a href="{% url 'homework:homework' %}">homeworklist</a>
     <a href="{% url 'timetable:timetable_list' %}">timetablelist</a>
+    <a href="{% url 'accounts:logout' %}">Logout</a>
+    {{ access_text }}
+    文字サイズ
+    <script src="/static/js/kawakami.js"></script>
+    <button class="size-button" data-font="12">小</button>
+    <button class="size-button active" data-font="16">中</button>
+    <button class="size-button" data-font="20">大</button>
 </div>
+
 {% endblock %}

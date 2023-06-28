@@ -5,7 +5,7 @@ from django.views import generic
 from django.shortcuts import redirect
 from django.contrib.auth.models import User
 from .forms import SearchForm, KijiCreateForm, CommentCreateForm, TagCreateForm, KijiUpdateForm
-from .models import Kiji, Comment, Tag
+from .models import Kiji, Comment, Tag, Access
 
 
 class Home(generic.ListView):
@@ -18,6 +18,15 @@ class Home(generic.ListView):
         # フォーム(request.GETやrequest.POST)とすると、
         # このフォームをテンプレートで表示すると、入力済みになっている
         context['form'] = SearchForm(self.request.GET)
+
+
+        Access.objects.get_or_create(id=1, defaults={'access_no': 0})
+        q = Access.objects.get(id=1)
+        kaisuu = q.access_no + 1
+        q.access_no = kaisuu
+        q.save()
+        access_text = str(kaisuu) + '回目のアクセス'
+        context['access_text'] = access_text
         return context
 
     def get_queryset(self):
