@@ -1,16 +1,27 @@
-{% extends 'base_timetable.html' %}
+{% extends 'base_chat.html' %}
 {% block content %}
-    <h1>時間割 一覧ページ</h1>
-    <div>
-        {% for timetable in timetable_list %}
-            <a href="{% url 'timetable:timetable_detail' timetable.id %}">{{ timetable.day }}</a>
-            <a href="{% url 'timetable:timetable_update' timetable.id %}">更新</a>
-            <a href="{% url 'timetable:timetable_delete' timetable.id %}">削除</a>
-            <br>
-            <br>
-        {% endfor %}
-    </div>
+<h1>時間割 一覧ページ</h1>
+<div class="col-8">
+    {% for timetable in timetable %}
+        <div class="border">
+            <div>
+                <a href="{% url 'timetable:timetable_detail' timetable.id %}">{{ timetable.day }}</a>
+                <a href="{% url 'timetable:timetable_update' timetable.id %}">更新</a>
+                <a href="{% url 'timetable:timetable_delete' timetable.id %}">削除</a>
+            </div>
+        </div>
+    {% endfor %}
+    <br>
+    <p>月別-絞り込み-</p>
+    {% for year_month in year_month_list %}
+        <div>
+            <a href="{{ year_month.link }}">{{ year_month.label }}</a>
+        </div>
+    {% endfor %}
+</div>
+<p>
     <a href="{% url 'timetable:timetable_create' %}">
         <input type="submit" value="時間割を作成">
     </a>
+</p>
 {% endblock %}

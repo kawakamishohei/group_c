@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base_chat.html' %}
+{% block content %}
     <form method="post">{% csrf_token %}
         <p>"{{ object }}"の時間割を削除してもよろしいですか?</p>
         <input type="submit" value="削除">
@@ -12,5 +7,4 @@
     <a href="{% url 'timetable:timetable_list' %}">
         <input type="submit" value="キャンセル">
     </a>
-</body>
-</html>
+{% endblock %}

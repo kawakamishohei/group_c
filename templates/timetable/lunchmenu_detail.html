@@ -1,4 +1,4 @@
-{% extends 'base_timetable.html' %}
+{% extends 'base_chat.html' %}
 {% block content %}
     <h2>{{ object.day }}の献立</h2>
     {% if object.image %}
@@ -7,4 +7,6 @@
     <p>内容:<br>
         {{ object.menu | linebreaksbr }}</p>
     <p>説明:{{ object.explain | linebreaksbr }}</p>
+    <a href="{% url 'timetable:timetable_detail' timetable.id %}">
+        <input type="submit" value="今日の時間割に戻る">
 {% endblock %}

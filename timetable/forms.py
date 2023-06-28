@@ -1,4 +1,6 @@
 from django import forms
+from django.core.validators import MinValueValidator, MaxValueValidator
+
 from .models import Timetable, Subject
 
 class DateInput(forms.DateInput):
@@ -32,6 +34,15 @@ class TimetableUpdateForm(forms.ModelForm):
 #     class Meta:
 #         model = Lunchmenu
 #         fields = ('image', 'menu', 'explain')
+
+class TimetableSearchForm(forms.Form):
+    day = forms.DateField(label='日付', required=False)
+
+class YearMonthForm(forms.Form):
+    year = forms.IntegerField()
+    month = forms.IntegerField(validators=[MinValueValidator(1),MaxValueValidator(12)])
+
+
 
 
 

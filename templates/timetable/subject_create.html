@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>教科作成ページ</title>
-</head>
-<body>
+{% extends 'base_chat.html' %}
+{% block content %}
   <h1>教科作成ページ</h1>
   <form action="" method="POST">
     {% csrf_token %}
     {{ form.as_div }}
     <button type="submit">送信</button>
   </form>
-</body>
-</html>
+{% endblock %}

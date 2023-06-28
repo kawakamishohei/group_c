@@ -19,5 +19,12 @@
             </p>
         </div>
     </div>
-    <a href="{% url 'timetable:lunchmenu_detail' timetable.id %}">今日の給食の献立</a>
+    <p>
+        <a href="{% url 'timetable:lunchmenu_detail' timetable.id %}">今日の給食の献立</a>
+    </p>
+    <p>
+        <a href="{% url 'timetable:timetable_list'　%}">
+            <input type="submit" value="時間割一覧に戻る">
+        </a>
+    </p>
 {% endblock %}
