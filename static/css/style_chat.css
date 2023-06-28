@@ -1,66 +1,84 @@
 body{
   height: 100%;
   width: 100%;
-  background-color: #ffffe0;
+  background-color: #f0f8ff;
 }
 header {
   top: 0px;
   left: 10px;
-  width: 20%;
-  height: 100%;
-  padding: 10px;
-  background: linear-gradient(to bottom right, #ffffe0, #3cb371);
+  width: 15%;
+  height: 98%;
+  padding: 40px;
+  background: linear-gradient(to bottom right, #48d1cc, #ffe0e0);
   align-items: center;
   position: fixed;
-  background: linear-gradient(to bottom right, #7fffd4, #3cb371);
-  box-shadow: inset 0 0 10px 15px #ffffe0;
+  box-shadow: inset 0 0 10px 15px #f0f8ff;
 }
 
 .title {
-  margin-top: auto;
+  padding: 10px;
+  text-align: center;
 }
 .menu-group{
   margin-left: auto;
   margin-right: auto;
 }
-.menu-item {
-  list-style: none;
-  padding: 10px;
-  text-align: center;
-}
 .main {
   top: 0px;
   width: 53%;
   height: 1000%;
-  background: linear-gradient(to bottom right, #ff69b4, #ffff00);
-  padding: 20px;
+  background: linear-gradient(to bottom right, #00ced1, #ffe0e0);
+  padding: 70px;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: inset 0 0 10px 15px #ffffe0;
+  box-shadow: inset 0 0 10px 15px #f0f8ff;
+  overflow-x: hidden;
 }
 .rightside-contents {
   top: 0px;
   right: 10px;
-  width: 20%;
-  height: 100%;
+  width: 15%;
+  height: 96%;
   float: right;
-  background: linear-gradient(to bottom right, #7fffd4, #3cb371);
+  background: linear-gradient(to bottom right, #48d1cc, #ffe0e0);
   align-items: center;
   position: fixed;
-  padding: 10px;
+  padding: 20px;
   z-index: -1;
-  box-shadow: inset 0 0 10px 15px #ffffe0;
+  box-shadow: inset 0 0 10px 15px #f0f8ff;
 }
 .rightside-contents-form {
   top: 0px;
   right: 10px;
-  width: 20%;
-  height: 100%;
+  width: 15%;
+  height: 96%;
   float: right;
-  background: linear-gradient(to bottom right, #7fffd4, #3cb371);
+  background: linear-gradient(to bottom right, #48d1cc, #ffe0e0);
   align-items: center;
   position: fixed;
-  padding: 10px;
+  padding: 40px;
   z-index: 1;
-  box-shadow: inset 0 0 10px 15px #ffffe0;
+  box-shadow: inset 0 0 10px 15px #f0f8ff;
+}
+
+.menu-item{
+    position:relative;
+    width:80%;
+    height:50px;
+    background-color:#afeeee;
+    border:1px solid #2feded;
+    padding: 0px;
+    padding-top:30px;
+    margin: 20px;
+    text-align: center;
+
+}
+
+.menu-item .Link{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
