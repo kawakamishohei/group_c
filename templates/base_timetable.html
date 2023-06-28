@@ -1,17 +1,29 @@
 <!DOCTYPE html>
-<!--  {% load static %}-->
+  {% load static %}
   <html lang="ja">
   <head>
+      <link rel="stylesheet" href="{% static 'css/style_chat.css' %}">
+      <link rel="stylesheet" href="{% static 'css/kawakami.css' %}">
+      <link rel="stylesheet" href="{% static 'css/yasu.css' %}">
+      <link rel="stylesheet" href="{% static 'css/erena.css' %}">
       <link rel="icon" type="image/png" href="{% static 'icon/favicon.ico' %}">
-      <link rel="stylesheet" href="{% static 'css/basic.css' %}">
-      <title>{% block title %}時間割機能{% endblock %}</title>
+      <title>{% block title %}(仮称)小学生専用Webサイト{% endblock %}</title>
   </head>
   <body>
-      <p><a href="{% url 'timetable:timetable_list' %}">時間割一覧ページへ</a>
-      <a href="{% url 'timetable:subject_list' %}">教科一覧ページへ</a>
-      <div id="content">
-<!--    継承するときは「block ●●」というように必ず書く-->
-        {% block content %}{% endblock %}
+      <header>
+        <h1 class="title">タイトル</h1>
+        <nav class="nav">
+            <h2 class="menu-item"><a href="{% url 'blog:home' %}">トップページ</a></h2>
+            <h2 class="menu-item"><a href="{% url 'chat:chat_list' %}">チャット</a></h2>
+            <h3 class="menu-item"><a href="{% url 'chat:chat_create' %}">はなしをつくる</a></h3>
+            <h2 class="menu-item"><a href="{% url 'homework:homework_list' %}">しゅくだい</a></h2>
+            <h2 class="menu-item"><a href="{% url 'timetable:timetable_list' %}">じかんわり</a></h2>
+            <h3 class="menu-item"><a href="{% url 'timetable:timetable_create' %}">じかんわり作成</a></h3>
+        </nav>
+      </header>
+
+      <div class="main">
+          {% block content %}{% endblock %}
       </div>
   </body>
   </html>

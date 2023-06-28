@@ -1,12 +1,13 @@
 {% extends 'base_chat.html' %}
 {% block content %}
-    <h2>{{ object.day }}の献立</h2>
+    <h2>{{ object.day }}のこんだて</h2>
     {% if object.image %}
-      <p>給食画像:</p><img src="{{ object.image.url }}">
+      <img src="{{ object.image.url }}">
     {% endif %}
-    <p>内容:<br>
+    <p>ないよう:<br>
         {{ object.menu | linebreaksbr }}</p>
-    <p>説明:{{ object.explain | linebreaksbr }}</p>
+    <p>せつめい:{{ object.explain | linebreaksbr }}</p>
     <a href="{% url 'timetable:timetable_detail' timetable.id %}">
-        <input type="submit" value="今日の時間割に戻る">
+        <input type="submit" value="もどる">
+    </a>
 {% endblock %}
