@@ -3,6 +3,9 @@
   <html lang="ja">
   <head>
       <link rel="stylesheet" href="{% static 'css/style_chat.css' %}">
+      <link rel="stylesheet" href="{% static 'css/kawakami.css' %}">
+      <link rel="stylesheet" href="{% static 'css/yasu.css' %}">
+      <link rel="stylesheet" href="{% static 'css/erena.css' %}">
       <link rel="icon" type="image/png" href="{% static 'icon/favicon.ico' %}">
       <title>{% block title %}(仮称)小学生専用Webサイト{% endblock %}</title>
   </head>
@@ -13,7 +16,7 @@
             <h2 class="menu-item"><a href="{% url 'blog:home' %}">トップページ</a></h2>
             <h2 class="menu-item"><a href="{% url 'chat:chat_list' %}">チャット</a></h2>
             <h3 class="menu-item"><a href="{% url 'chat:chat_create' %}">はなしをつくる</a></h3>
-            <h2 class="menu-item"><a href="{% url 'homework:homework' %}">しゅくだい</a></h2>
+            <h2 class="menu-item"><a href="{% url 'homework:homework_list' %}">しゅくだい</a></h2>
             <h2 class="menu-item"><a href="{% url 'timetable:timetable_list' %}">じかんわり</a></h2>
             <h3 class="menu-item"><a href="{% url 'timetable:timetable_create' %}">じかんわり作成</a></h3>
         </nav>
