@@ -13,12 +13,13 @@
       <header>
         <h1 class="title">タイトル</h1>
         <nav class="nav">
-            <h2 class="menu-item"><a href="{% url 'blog:home' %}">トップページ</a></h2>
-            <h2 class="menu-item"><a href="{% url 'chat:chat_list' %}">チャット</a></h2>
-            <h3 class="menu-item"><a href="{% url 'chat:chat_create' %}">はなしをつくる</a></h3>
-            <h2 class="menu-item"><a href="{% url 'homework:homework_list' %}">しゅくだい</a></h2>
-            <h2 class="menu-item"><a href="{% url 'timetable:timetable_list' %}">じかんわり</a></h2>
-            <h3 class="menu-item"><a href="{% url 'timetable:timetable_create' %}">じかんわり作成</a></h3>
+            <div class="menu-item">トップページ<a class="Link" href="{% url 'blog:home' %}"></a></div>
+            <div class="menu-item">チャット<a class="Link" href="{% url 'chat:chat_list' %}"></a></div>
+            <div class="menu-item">話をつくる<a class="Link" href="{% url 'chat:chat_create' %}"></a></div>
+            <div class="menu-item">しゅくだい<a class="Link" href="{% url 'homework:homework_list' %}"></a></div>
+            <div class="menu-item">しゅくだい提出<a class="Link" href="{% url 'homework:homework_student' %}"></a></div>
+            <div class="menu-item">じかんわり<a class="Link" href="{% url 'timetable:timetable_list' %}"></a></div>
+            <div class="menu-item">じかんわり作成<a class="Link" href="{% url 'timetable:timetable_create' %}"></a></div>
         </nav>
       </header>
 
@@ -26,6 +27,7 @@
           {% block content %}{% endblock %}
       </div>
 <div class="rightside-contents">
+
 </div>
   </body>
   </html>
