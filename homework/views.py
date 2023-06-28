@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from .forms import PostCreateForm , HomeworkCreateForm
 from .models import Post , Homework
 from django.views.generic import TemplateView
+from django.views.decorators.http import require_POST
 
 class IndexView(generic.TemplateView):
     template_name = 'homework/homework.html'
@@ -10,9 +11,9 @@ class IndexView(generic.TemplateView):
     model = Post
 
 class PostListView(generic.ListView):
+    model = Post
     template_name = 'homework/homework_list.html'
     success_url = reverse_lazy('homework:homework_list')
-    model = Post
 
 class PostCreateView(generic.CreateView):
     model = Post
@@ -24,4 +25,9 @@ class StudentCreateView(generic.CreateView):
     model = Homework
     form_class = HomeworkCreateForm
     template_name = 'homework/homework_student.html'
-    success_url = reverse_lazy('homework:homework_student')
+    success_url = reverse_lazy('homework:homework_teacher')
+
+class TeacherListView(generic.ListView):
+    model = Homework
+    template_name = 'homework/homework_teacher.html'
+    success_url = reverse_lazy('homework:homework_teacher')

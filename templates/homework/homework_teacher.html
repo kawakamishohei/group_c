@@ -5,6 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-
+<h1>宿題提出一覧</h1>
+{% for homework in homework_list %}
+    {{ homework.name }}
+    {% if homework.image %}
+    <img class="homework-image" src="{{ homework.image.url }}/">
+    {% endif %}
+{% endfor %}
 </body>
 </html>

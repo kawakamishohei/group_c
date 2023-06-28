@@ -8,12 +8,14 @@
 <h1>しゅくだいていしゅつ</h1>
 <p>しゅくだいのしゃしんをとってそうしんしてください</p>
 <form method="post" enctype="multipart/form-data">
- <button type="submit" class="btn btn-primary">送信</button>
+      <tr>
+        <th>{{ homework.name }}</th>
+      </tr>
+   <p>しゅくだいかんりょう <input type="checkbox"></p>
+
     {% csrf_token %}
     {{ form.as_div }}
+    <button type="submit" class="btn btn-primary">送信</button>
 </form>
-<button type="submit" class="btn btn-primary">送信</button>
 </body>
-
-  {% csrf_token %}
 </html>
