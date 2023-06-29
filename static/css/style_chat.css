@@ -72,7 +72,7 @@ header {
     margin: 20px;
     text-align: center;
     box-shadow　　:-2px -2px 2px #999 inset;　
-    border-radius　 :100px;
+    border-radius　 :1px;
 
 }
 .menu-item:hover {
@@ -95,3 +95,28 @@ header {
     height: 100%;
 }
 
+
+.button{
+    position:relative;
+    width:50%;
+    height:10%;
+    background-color:#afeeee;
+    border:1px solid #2feded;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    box-shadow　　:-2px -2px 2px #999 inset;　
+    border-radius　 :100px;
+    float: none;
+}
+.button:hover {
+	background-color: #2feded;
+	color: white;
+}
+.button:active {
+	box-shadow: 2px 2px 2px #999 inset;　
+	color: transparent;
+	text-shadow: 2px 2px 0px #666;　
+}

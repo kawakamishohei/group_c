@@ -2,12 +2,24 @@
 
 {% block content %}
 
+{% if user.age > 17 %}
+<h1>トークテーマ投稿</h1>
 <form action="" method="POST" enctype="multipart/form-data">
   {% csrf_token %}
   {{ form.as_div }}
-  <button type="submit">送信</button>
+  <button type="submit">投稿</button>
 </form>
 <hr>
+{% else %}
+<h1>おはなしをつくる</h1>
+<form action="" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_div }}
+  <button type="submit">とうこうする</button>
+</form>
+<hr>
+{% endif %}
+
 <a href="{% url 'chat:chat_list' %}">いちらんにもどる</a>
 
 <div class="rightside-contents">

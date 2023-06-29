@@ -12,26 +12,37 @@
       <title>{% block title %}(仮称)小学生専用Webサイト{% endblock %}</title>
   </head>
   <body>
-      <header>
+  {% if user.age > 17 %}
+    <div class ="kokoro">
+        <header>
         <h1 class="title">タイトル</h1>
         <nav class="nav">
             <div class="menu-item">トップページ<a class="Link" href="{% url 'blog:home' %}"></a></div>
+            <div class="menu-item">記事作成<a class="Link" href="{% url 'blog:kiji_create' %}"></a></div>
             <div class="menu-item">チャット<a class="Link" href="{% url 'chat:chat_list' %}"></a></div>
             <div class="menu-item">話をつくる<a class="Link" href="{% url 'chat:chat_create' %}"></a></div>
-            <div class="menu-item">しゅくだい<a class="Link" href="{% url 'homework:homework_list' %}"></a></div>
-            {% if user.age <= 17 %}
-            <div class="menu-item">しゅくだい提出<a class="Link" href="{% url 'homework:homework_student' %}"></a></div>
-            {% else %}
-            <div class="menu-item">しゅくだい作成<a class="Link" href="{% url 'homework:homework_create' %}"></a></div>
-            {% endif %}
-            <div class="menu-item">じかんわり<a class="Link" href="{% url 'timetable:timetable_list' %}"></a></div>
-            {% if user.age > 17 %}
-            <div class="menu-item">じかんわり作成<a class="Link" href="{% url 'timetable:timetable_create' %}"></a></div>
-            {% endif %}
-
-
+            <div class="menu-item">宿題一覧<a class="Link" href="{% url 'homework:homework_list' %}"></a></div>
+            <div class="menu-item">宿題作成<a class="Link" href="{% url 'homework:homework_create' %}"></a></div>
+            <div class="menu-item">時間割一覧<a class="Link" href="{% url 'timetable:timetable_list' %}"></a></div>
+            <div class="menu-item">時間割作成<a class="Link" href="{% url 'timetable:timetable_create' %}"></a></div>
         </nav>
       </header>
+    </div>
+　{% else %}
+    <div class="nico">
+        <header>
+        <h1 class="title">タイトル</h1>
+        <nav class="nav">
+            <div class="menu-item">トップページ<a class="Link" href="{% url 'blog:home' %}"></a></div>
+            <div class="menu-item">おはなし<a class="Link" href="{% url 'chat:chat_list' %}"></a></div>
+            <div class="menu-item">おはなしつくる<a class="Link" href="{% url 'chat:chat_create' %}"></a></div>
+            <div class="menu-item">しゅくだい<a class="Link" href="{% url 'homework:homework_list' %}"></a></div>
+            <div class="menu-item">しゅくだいていしゅつ<a class="Link" href="{% url 'homework:homework_student' %}"></a></div>
+            <div class="menu-item">じかんわり<a class="Link" href="{% url 'timetable:timetable_list' %}"></a></div>
+        </nav>
+      </header>
+    </div>
+  {% endif %}
 
       <div class="main">
           {% block content %}{% endblock %}

@@ -1,10 +1,22 @@
 {% extends 'base_chat.html' %}
 
 {% block content %}
+
+{% if user.age > 17 %}
 <form method="post">
   {% csrf_token %}
   <p>"{{ chat.title }}"を削除してもよろしいですか?</p>
-  <input type="submit" value="削除">
+  <input type="submit" class="button" value="削除">
 </form>
+<button type="button" class="button" onclick="history.back()">戻る</button>
+{% else %}
+
+<form method="post">
+  {% csrf_token %}
+  <p>"{{ chat.title }}"をけしてもだいじょうぶ?</p>
+  <input type="submit" class="button" value="うん！！！">
+</form>
+<button type="button" class="button" onclick="history.back()">やっぱダメ！！！</button>
+{% endif %}
 
 {% endblock %}
