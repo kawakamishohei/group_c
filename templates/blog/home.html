@@ -1,25 +1,12 @@
 {% extends 'base_chat.html' %}
 {% block content %}
 <div align="center">
-    {% if user.age < 18 %}
-    <div class ="nico">
-    きみが{{ access_text }}だよ！
-        <form action ="" method=""GET>
-            {{ form.as_div }}<button type="submit" class="nico">けんさく</button>
-        </form>
-    </div>
-    {% endif %}
     {% if user.age > 17 %}
     <div class ="kokoro">
-    君が{{ access_text }}だよ！
         <form action ="" method=""GET>
-            {{ form.as_div }}<button type="submit" class="kokoro">検索</button>
+            {{ form.as_div }}<button type="submit" class="nico">検索</button>
         </form>
-    </div>
-    {% endif %}
-
 <h1>おしらせ</h1>
-<div class ="kokoro">
 {% for kiji in kiji_list %}
     <h1><a href="{% url 'blog:kiji_detail' kiji.pk %}">{{ kiji.title }}</a></h1>  {{ kiji.text | truncatechars:20 }} / {{ kiji.created_at }}
 <!--コンテキスト使わないで表示-->
@@ -33,19 +20,59 @@
 </div>
 {% endfor %}
 <p>
-    {% if user.age > 17 %}
 <a href="{% url 'blog:kiji_update' kiji.pk %}">編集</a>
 <a href="{% url 'blog:kiji_delete' kiji.pk %}">削除</a>
-    {% endif %}
 <a href="{% url 'blog:comment_create' kiji.pk %}">コメント</a>
 </p>
 {% endfor %}
 </p>
+<div class="rightside-contents-form">
+    ログインユーザー <br>{{ user.username }}
+    <h1>メニュー</h1>
+    <a href="{% url 'blog:kiji_create' %}">投稿</a>
+    <a href="{% url 'accounts:login' %}">ログアウト</a>
+    <p>
+    貴方で{{ access_text }}回目のアクセスです
+    </p>
 </div>
-    <h1>MENU</h1>
-    {% if user.age > 17 %}
-    <a href="{% url 'blog:kiji_create' %}">とうこう</a>
-    {% endif %}
+</div>
 
+    {% else %}
+
+    <div class ="nico">
+        <form action ="" method=""GET>
+            {{ form.as_div }}<button type="submit" class="nico">けんさく</button>
+        </form>
+<h1>おしらせ</h1>
+{% for kiji in kiji_list %}
+    <h1><a href="{% url 'blog:kiji_detail' kiji.pk %}">{{ kiji.title }}</a></h1>  {{ kiji.text | truncatechars:20 }} / {{ kiji.created_at }}
+<!--コンテキスト使わないで表示-->
+{% for tag in kiji.tags.all %}
+    {{ tag.name }}
+{% endfor %}
+{% for comment in kiji.comment_set.all %}
+<div>
+    {{ comment.name }}
+    {{ comment.text | truncatechars:20}}
 </div>
+{% endfor %}
+<p>
+<a href="{% url 'blog:comment_create' kiji.pk %}">コメント</a>
+</p>
+{% endfor %}
+</p>
+<div class="rightside-contents-form">
+    ログインユーザー <br>{{ user.username }}
+    <h1>メニュー</h1>
+    <a href="{% url 'blog:kiji_create' %}">投稿</a>
+    <a href="{% url 'accounts:login' %}">ログアウト</a>
+    <br>
+    <p>
+    きみが{{ access_text }}かいめのアクセスだよ！
+    </p>
+</div>
+</div>
+    {% endif %}
+</div>
+
 {% endblock %}

@@ -24,12 +24,12 @@ class Tag(models.Model):
 
 class Kiji(models.Model):
     title = models.CharField('タイトル', max_length=255)
-    text = models.TextField('本文')
-    created_at = models.DateTimeField('作成日', default=timezone.now)
+    text = models.TextField('本文　　')
+    created_at = models.DateTimeField('作成日　', default=timezone.now)
     category = models.ForeignKey(Category, on_delete=models.PROTECT, verbose_name='カテゴリ')
 
     # タグは複数紐づく。また、タグを設定しないことも可能にしている(blank=True, null=True)
-    tags = models.ManyToManyField(Tag, blank=True, null=True, verbose_name='タグ')
+    tags = models.ManyToManyField(Tag, blank=True, null=True, verbose_name='タグ　　')
 
     def __str__(self):
         return self.title

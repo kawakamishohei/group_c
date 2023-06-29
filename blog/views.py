@@ -19,13 +19,12 @@ class Home(generic.ListView):
         # このフォームをテンプレートで表示すると、入力済みになっている
         context['form'] = SearchForm(self.request.GET)
 
-
         Access.objects.get_or_create(id=1, defaults={'access_no': 0})
         q = Access.objects.get(id=1)
         kaisuu = q.access_no + 1
         q.access_no = kaisuu
         q.save()
-        access_text = str(kaisuu) + 'かいめのアクセス'
+        access_text = str(kaisuu)
         context['access_text'] = access_text
         return context
 
@@ -39,11 +38,15 @@ class Home(generic.ListView):
             queryset = queryset.filter(Q(title__icontains=keyword) | Q(text__icontains=keyword))
         return queryset
 
-    def users(request, user_age):
+    def users(request, user_age, user_username):
         user = get_object_or_404(User, pk=user_age)
         context2 = {
             'user': user,
         }
+        # user2 = get_object_or_404(User, pk=user_username)
+        # context3 = {
+        #     'user2': user2,
+        # }
         return context2
 
 
@@ -86,8 +89,6 @@ class KijiUpdate(generic.UpdateView):
     success_url = reverse_lazy('blog:home')
 
 
-
-
 class KijiDelete(generic.DeleteView):
     model = Kiji
     template_name = 'blog/kiji_delete.html'
@@ -99,7 +100,6 @@ class CommentCreateView(generic.CreateView):
     template_name = 'blog/comment_create.html'
     success_url = reverse_lazy('blog:home')
     form_class = CommentCreateForm
-
 
     def form_valid(self, form):
         # form.save(commit=False) データベースにはまだ保存しない
