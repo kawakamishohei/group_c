@@ -15,6 +15,9 @@
     {% if user.age > 17 %}
     <a href="{% url 'homework:homework_delete' post.pk %}">削除</a>
     {% endif %}
+     {% if user.age <= 17 %}
+    <a href="{% url 'homework:homework_delete' post.pk %}">完了</a>
+    {% endif %}
     <tr>
       <td>{{ post.date }}</td>
       <td>{{ post.title }}</td>

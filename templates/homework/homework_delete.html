@@ -3,7 +3,11 @@
 {% block content %}
 <form method="post">
     {% csrf_token %}
-    <p>"{{ homework.title }}"を削除してもよろしいですか？</p>
+     {% if user.age <= 17 %}
+    <p>"{{ post.title }}"の宿題を終えましたか？</p>
+    {% else %}
+    <p>"{{ post.title }}"を削除してもよろしいですか？</p>
+    {% endif %}
     <input type="submit" value="削除">
 
 </form>

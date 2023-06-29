@@ -40,6 +40,6 @@ class TeacherListView(generic.ListView):
         return context2
 
 class HomeworkDeleteView(generic.DeleteView):
-    model = Homework
+    model = Post
     template_name = 'homework/homework_delete.html'
     success_url = reverse_lazy('homework:homework_list')
