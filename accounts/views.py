@@ -14,7 +14,7 @@ class AccountCreateView(generic.CreateView):
 
 class Login(LoginView):
     template_name = 'accounts/login.html'
-    next_page = reverse_lazy('accounts:clear')
+    next_page = reverse_lazy('blog:home')
 
 class Logout(LogoutView):
     # next_page = '/accounts/login/'

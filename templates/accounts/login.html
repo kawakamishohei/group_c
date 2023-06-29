@@ -3,10 +3,14 @@
 {% block content %}
 <div align="center">
 <h2>ログインページ</h2>
+<div class = "box3">
 <form method="post" action="">
     {% csrf_token %}
     {{ form.as_p }}
+    <p>
     <input type="submit" id="save" value="ログイン">
+    </p>
 </form>
+</div>
 </div>
 {% endblock %}

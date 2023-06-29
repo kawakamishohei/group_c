@@ -8,13 +8,20 @@
 }
 .box{
 width: 100%;
-height: 110px;
+height: 20%;
 background: #afeeee;
 border:1px solid #2feded;
 position: relative;/*親要素に記入*/
 }
 .box2{
 width: 100%;
+height: 100%;
+background: #afeeee;
+border:1px solid #2feded;
+position: relative;/*親要素に記入*/
+}
+.box3{
+width: 40%;
 height: 100%;
 background: #afeeee;
 border:1px solid #2feded;

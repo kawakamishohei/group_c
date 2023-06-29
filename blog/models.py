@@ -2,11 +2,13 @@ from django.utils import timezone
 from django.db import models
 from accounts.models import CustomUser
 
+
 def get_current_name(request):
     if request.user.is_authenticated:
         return request.user.name
     else:
         return 'あ'
+
 
 class Category(models.Model):
     name = models.CharField('カテゴリ名', max_length=255)
@@ -36,7 +38,7 @@ class Kiji(models.Model):
 
 
 class Comment(models.Model):
-    name = models.CharField('名前', default='名無し', max_length=100)
+    name = models.CharField('名前　　　　', default='名無し', max_length=100,)
     text = models.TextField('コメント内容')
     target = models.ForeignKey(
         Kiji, on_delete=models.SET_NULL,
@@ -49,5 +51,4 @@ class Comment(models.Model):
 
 
 class Access(models.Model):
-    access_no = models.PositiveIntegerField(blank=True,null=True)
-
+    access_no = models.PositiveIntegerField(blank=True, null=True)

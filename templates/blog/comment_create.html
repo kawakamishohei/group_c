@@ -4,7 +4,8 @@
 <form action="" method="POST">
   {% csrf_token %}
   {{ form.as_div }}
-  <button type="submit">送信</button>
+  <div align="center">
+  <button type="submit" class="button">送信</button>
+  </div>
 </form>
-
 {% endblock %}
