@@ -1,26 +1,63 @@
 {% extends 'base_chat.html' %}
 {% block content %}
-    <div>
-        <h1>{{ timetable.day }}のじかんわり</h1>
-        <div>
-            <p>あさのかい</p>
-            <p>１じかんめ : {{ timetable.FirstPeriod }}</p>
-            <p>２いかんめ : {{ timetable.SecondPeriod }}</p>
-            <p>３じかんめ : {{ timetable.ThirdPeriod }}</p>
-            <p>４じかんめ : {{ timetable.FourthPeriod }}</p>
-            <p>きゅうしょく</p>
-            <p>ひるやすみ</p>
-            <p>５じかんめ : {{ timetable.FifthPeriod }}</p>
-            <p>６じかんめ : {{ timetable.SixthPeriod }}</p>
-            <p>そうじ</p>
-            <p>おわりのかい</p>
-            <p>ひつようなもの：<br>
+        <h1 align="center">{{ timetable.day }}のじかんわり</h1>
+        <table border="3" width="300" height="500" align="center">
+            <tr align="center" valign="center">
+                <th></th>
+                <th>授業</th>
+                <th >内容</th>
+            </tr>
+            <tr align="center" valign="center">
+                <td colspan="3">あさのかい</td>
+            </tr>
+            <tr align="center" valign="center">
+                <td>１じかんめ</td>
+                <td>{{ timetable.FirstPeriod }}</td>
+                <td>{{ timetable.firsttext }}</td>
+            </tr>
+            <tr align="center" valign="center">
+                <td>２じかんめ</td>
+                <td>{{ timetable.SecondPeriod }}</td>
+                <td>{{ timetable.secondtext }}</td>
+            </tr>
+            <tr align="center" valign="center">
+                <td>３じかんめ</td>
+                <td>{{ timetable.ThirdPeriod }}</td>
+                <td>{{ timetable.thirdtext }}</td>
+            </tr>
+            <tr align="center" valign="center">
+                <td>４じかんめ</td>
+                <td>{{ timetable.FourthPeriod }}</td>
+                <td>{{ timetable.fourthtext }}</td>
+            </tr>
+            <tr align="center" valign="center">
+                <td colspan="3">きゅうしょく</td>
+            </tr>
+            <tr align="center" valign="center">
+                <td colspan="3">ひるやすみ</td>
+            </tr>
+            <tr align="center" valign="center">
+                <td>５じかんめ</td>
+                <td>{{ timetable.FifthPeriod }}</td>
+                <td>{{ timetable.fifthtext }}</td>
+            </tr>
+            <tr align="center" valign="center">
+                <td>６じかんめ</td>
+                <td>{{ timetable.SixthPeriod }}</td>
+                <td>{{ timetable.sixthtext }}</td>
+            </tr>
+            <tr align="center" valign="center">
+                <td colspan="3">そうじ</td>
+            </tr>
+            <tr align="center" valign="center">
+                <td colspan="3">おわりのかい</td>
+            </tr>
+        </table>
+            <p>ひつようなもの<br>
                 {{ timetable.text | linebreaksbr }}
             </p>
-        </div>
-    </div>
     <p>
-        <a href="{% url 'timetable:lunchmenu_detail' timetable.id %}">きょうのきゅうしょくのこんだて</a>
+        <a href="{% url 'timetable:lunchmenu_detail' timetable.id %}">きゅうしょくのこんだて</a>
     </p>
     <p>
         <a href="{% url 'timetable:timetable_list'　%}">
