@@ -1,50 +1,74 @@
 {% extends 'base_chat.html' %}
 {% block content %}
-<h1>じかんわり いちらんページ</h1>
-<div class="col-8">
-    <table border="3">
-    <tr>
-        <th>ひづけ</th>
-         {% if user.age > 17 %}
-            <th>更新</th>
-            <th>削除</th>
-        {% endif %}
-    </tr>
-    {% for timetable in timetable %}
-        <tr>
-            <div class="border">
-                <td><a href="{% url 'timetable:timetable_detail' timetable.id %}">{{ timetable.day }}</a></td>
-                {% if user.age > 17 %}
-                    <td><a href="{% url 'timetable:timetable_update' timetable.id %}">更新</a></td>
-                    <td><a href="{% url 'timetable:timetable_delete' timetable.id %}">削除</a></td>
-                {% endif %}
-            </div>
-        </tr>
-    {% endfor %}
-    </table>
-    <br>
-    <div class="rightside-contents">
-     <p>りこむ</p>
-    {% for year_month in year_month_list %}
-        <div>
-            <a href="{{ year_month.link }}">{{ year_month.label }}</a>
+{% if user.age < 17 %}
+    <div class="nico">
+       <h1 align="center">じかんわりいちらんページ</h1>
+        <div class="col-8">
+            <table border="3" align="center" width="300" height="200">
+            <tr align="center">
+                <th>ひづけ</th>
+            </tr>
+            {% for timetable in timetable %}
+                <tr align="center">
+                    <div class="border">
+                        <td><a href="{% url 'timetable:timetable_detail' timetable.id %}">{{ timetable.day }}</a></td>
+                    </div>
+                </tr>
+            {% endfor %}
+            </table>
+            <br>
         </div>
-    {% endfor %}
+        <div class="rightside-contents-form">
+             <p align="center">しぼりこみ</p>
+            {% for year_month in year_month_list %}
+                <div align="center">
+                    <a href="{{ year_month.link }}">{{ year_month.label }}</a>
+                </div>
+            {% endfor %}
+            <br>
+            <br>
+        </div>
     </div>
-</div>
-{% if user.age > 17 %}
-    <p>
-        <a href="{% url 'timetable:timetable_create' %}">
-            <input type="submit" value="時間割を作成">
-        </a>
-    </p>
-{% endif %}
-<div class="rightside-contents-form">
-     <p>しぼりこみ</p>
-    {% for year_month in year_month_list %}
-        <div>
-            <a href="{{ year_month.link }}">{{ year_month.label }}</a>
+    </div>
+{% else %}
+    <div class="kokoro">
+        <h1 align="center">時間割一覧ページ</h1>
+        <div class="col-8">
+            <table border="3" align="center" width="300" height="200">
+            <tr align="center">
+                <th>日付</th>
+                <th>更新</th>
+                <th>削除</th>
+            </tr>
+            {% for timetable in timetable %}
+                <tr align="center">
+                    <div class="border">
+                        <td><a href="{% url 'timetable:timetable_detail' timetable.id %}">{{ timetable.day }}</a></td>
+                            <td><a href="{% url 'timetable:timetable_update' timetable.id %}">更新</a></td>
+                            <td><a href="{% url 'timetable:timetable_delete' timetable.id %}">削除</a></td>
+                    </div>
+                </tr>
+            {% endfor %}
+            </table>
+            <br>
         </div>
-    {% endfor %}
-</div>
+        <div class="rightside-contents-form">
+             <p align="center">絞り込む</p>
+            {% for year_month in year_month_list %}
+                <div align="center">
+                    <a href="{{ year_month.link }}">{{ year_month.label }}</a>
+                </div>
+            {% endfor %}
+            <br>
+            <br>
+            <p align="center">新規作成</p>
+            <p align="center">
+                <a href="{% url 'timetable:timetable_create' %}">
+                    <input type="submit" value="時間割を作成" class="button">
+                </a>
+            </p>
+        </div>
+    </div>
+    </div>
+{% endif %}
 {% endblock %}

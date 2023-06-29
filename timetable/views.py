@@ -16,6 +16,16 @@ class TimetableCreateView(CreateView):
     success_url = reverse_lazy('timetable:timetable_list')
     form_class = TimetableCreateForm
 
+    def post(self, request, *args, **kwargs):
+        form = TimetableCreateForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+
+        print(form.errors)
+
+        return redirect("timetable:timetable_list")
+
 class TimetableView(View):
     model = Timetable
     template_name = 'timetable/timetable_list.html'
@@ -96,15 +106,45 @@ class TimetableDeleteView(DeleteView):
     template_name = 'timetable/timetable_delete.html'
     success_url = reverse_lazy('timetable:timetable_list')
 
+    def post(self, request, *args, **kwargs):
+        form = TimetableCreateForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+
+        print(form.errors)
+
+        return redirect("timetable:timetable_list")
+
 class TimetableDetailView(DetailView):
     model = Timetable
     template_name = 'timetable/timetable_detail.html'
+
+    def post(self, request, *args, **kwargs):
+        form = TimetableCreateForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+
+        print(form.errors)
+
+        return redirect("timetable:timetable_list")
 
 class TimetableUpdateView(UpdateView):
     model = Timetable
     form_class = TimetableUpdateForm
     template_name = 'timetable/timetable_update.html'
     success_url = reverse_lazy('timetable:timetable_list')
+
+    def post(self, request, *args, **kwargs):
+        form = TimetableCreateForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+
+        print(form.errors)
+
+        return redirect("timetable:timetable_list")
 
 class SubjectCreateView(CreateView):
     model = Subject

@@ -1,18 +1,19 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base_chat.html' %}
+{% block content %}
+<div class="kokoro">
   <h2>時間割編集ページ</h2>
   <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
       {{ form.as_p }}
-      <input type="submit" id="save" value="更新">
+      <div class="rightside-contents-form" align="center">
+        <input type="submit" id="save" value="更新" class="button">
+      </div>
   </form>
-   <a href="{% url 'timetable:timetable_list' %}">
-       <input type="submit" value="キャンセル">
-   </a>
-</body>
-</html>
+    <br>
+    <div class="rightside-contents-form" align="center">
+       <a href="{% url 'timetable:timetable_list' %}">
+           <input type="submit" value="キャンセル" class="button">
+       </a>
+    </div>
+</div>
+{% endblock %}

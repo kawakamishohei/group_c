@@ -1,13 +1,64 @@
 {% extends 'base_chat.html' %}
 {% block content %}
-    <h2>{{ object.day }}のこんだて</h2>
-    {% if object.image %}
-      <img src="{{ object.image.url }}">
-    {% endif %}
-    <p>ないよう:<br>
-        {{ object.menu | linebreaksbr }}</p>
-    <p>せつめい:{{ object.explain | linebreaksbr }}</p>
-    <a href="{% url 'timetable:timetable_detail' timetable.id %}">
-        <input type="submit" value="もどる">
-    </a>
+{% if user.age < 17 %}
+    <div class="nico" align="center">
+         <h2>{{ object.day }}のこんだて</h2>
+        {% if object.image %}
+          <img src="{{ object.image.url }}">
+        {% endif %}
+        <table border="3" width="350" height="100" align="center">
+            <tr>
+                <th>こんだてないよう</th>
+            </tr>
+            <tr>
+                <td>{{ object.menu | linebreaksbr }}</td>
+            </tr>
+        </table>
+        <br>
+        <table border="3" width="500" height="100" align="center">
+            <tr>
+                <th>せつめい</th>
+            </tr>
+            <tr>
+                <td>{{ object.explain | linebreaksbr }}</td>
+            </tr>
+        </table>
+        <div class="rightside-contents-form">
+            <br>
+            <a href="{% url 'timetable:timetable_detail' timetable.id %}">
+                <input class="button" type="submit" value="じかんわりしょうさいページにもどる">
+            </a>
+        </div>
+    </div>
+{% else %}
+    <div class="kuroro" align="center">
+        <h2>{{ object.day }}の献立</h2>
+        {% if object.image %}
+          <img src="{{ object.image.url }}">
+        {% endif %}
+        <table border="3" width="350" height="100" align="center">
+            <tr>
+                <th>献立内容</th>
+            </tr>
+            <tr>
+                <td>{{ object.menu | linebreaksbr }}</td>
+            </tr>
+        </table>
+        <br>
+        <table border="3" width="500" height="100" align="center">
+            <tr>
+                <th>説明</th>
+            </tr>
+            <tr>
+                <td>{{ object.explain | linebreaksbr }}</td>
+            </tr>
+        </table>
+        <div class="rightside-contents-form">
+            <br>
+            <a href="{% url 'timetable:timetable_detail' timetable.id %}">
+                <input class="button" type="submit" value="時間割詳細ページに戻る">
+            </a>
+        </div>
+    </div>
+{% endif %}
 {% endblock %}

@@ -1,10 +1,12 @@
 {% extends 'base_chat.html' %}
 {% block content %}
+<div class="kokoro">
     <form method="post">{% csrf_token %}
         <p>"{{ object }}"の時間割を削除してもよろしいですか?</p>
-        <input type="submit" value="削除">
+        <input type="submit" value="削除" class="button">
     </form>
     <a href="{% url 'timetable:timetable_list' %}">
-        <input type="submit" value="キャンセル">
+        <input type="submit" value="キャンセル" class="button">
     </a>
+</div>
 {% endblock %}

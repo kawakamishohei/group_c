@@ -1,8 +1,20 @@
 {% extends 'base_chat.html' %}
 {% block content %}
-<h2>きゅうしょくのこんだてリスト</h2>
-    <a href="{% url 'timetable:lunchmenu_create' %}">作成</a>
-    {% for menu in lunchmenu_list %}
-        <a href="{% url 'timetable:lunchmenu_detail' menu.id %}">{{ menu.day }}</a>
-    {% endfor %}
+
+{% if user.age < 17 %}
+    <div class="nico">
+        <h2>きゅうしょくのこんだてリスト</h2>
+            <a href="{% url 'timetable:lunchmenu_create' %}">作成</a>
+            {% for menu in lunchmenu_list %}
+                <a href="{% url 'timetable:lunchmenu_detail' menu.id %}">{{ menu.day }}</a>
+            {% endfor %}
+    </div>
+{% else %}
+    <div class="kokoro">
+        <h2>konn</h2>
+            <a href="{% url 'timetable:lunchmenu_create' %}">作成</a>
+            {% for menu in lunchmenu_list %}
+                <a href="{% url 'timetable:lunchmenu_detail' menu.id %}">{{ menu.day }}</a>
+            {% endfor %}
+    </div>
 {% endblock %}

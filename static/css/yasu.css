@@ -1,0 +1,56 @@
+.yk-button {
+    display: inline-block;
+    color: #fff;
+    background: linear-gradient(to bottom, #00acee, #0072e0);
+    font-size: 18px;
+    font-weight: 500;
+    padding: 12px 26px;
+    border-radius: 100px;
+    border: 3px solid transparent;
+    text-decoration: none;
+    cursor: pointer;
+}
+.yk-button--outline {
+    background: transparent;
+    color: var(--color-brand-primary);
+    border-color: var(--color-brand-primary);
+}
+
+.yk-button:hover {
+    color: #000000;
+     background: linear-gradient(to bottom, #7fffd4, #00ffff);
+}
+
+.ykdl-button {
+    display: inline-block;
+    color: #fff;
+    background: linear-gradient(to bottom, #e0005d, #e00004);
+    font-size: 18px;
+    font-weight: 500;
+    padding: 12px 26px;
+    border-radius: 100px;
+    border: 3px solid transparent;
+    text-decoration: none;
+    cursor: pointer;
+}
+.ykdl-button:hover {
+    color: #000000;
+     background: linear-gradient(to bottom, #ff99cf, #ff4dac);
+}
+
+.ykcc-button {
+    display: inline-block;
+    color: #fff;
+    background: linear-gradient(to bottom, #00acee, #0072e0);
+    font-size: 18px;
+    font-weight: 500;
+    padding: 12px 26px;
+    border-radius: 100px;
+    border: 3px solid transparent;
+    text-decoration: none;
+    cursor: pointer;
+}
+.ykcc-button:hover {
+    color: #000000;
+    background: linear-gradient(to bottom, #7fffd4, #00ffff);
+}
