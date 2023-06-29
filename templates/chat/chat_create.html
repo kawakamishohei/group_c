@@ -7,7 +7,7 @@
 <form action="" method="POST" enctype="multipart/form-data">
   {% csrf_token %}
   {{ form.as_div }}
-  <button type="submit">投稿</button>
+  <button class="button" type="submit">投稿</button>
 </form>
 <hr>
 {% else %}
@@ -15,7 +15,7 @@
 <form action="" method="POST" enctype="multipart/form-data">
   {% csrf_token %}
   {{ form.as_div }}
-  <button type="submit">とうこうする</button>
+  <button class="button" type="submit">とうこうする</button>
 </form>
 <hr>
 {% endif %}
