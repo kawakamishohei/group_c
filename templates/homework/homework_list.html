@@ -1,19 +1,26 @@
 {% extends 'base_chat.html' %}
 
 {% block content %}
+ {% if user.age > 17 %}
+<div class="kokoro">
+  {% else %}
+  <div class ="nico">
+    {% endif %}
 <h1>こんしゅうのしゅくだい</h1>
-<table class="table">
+  </div>
+<table class="table" border="1" width="100%">
   <thead>
     <tr>
+
       <th>日付</th>
       <th>教科</th>
       <th>内容</th>
+      <th>操作</th>
     </tr>
   </thead>
   <tbody>
     {% for post in post_list %}
     {% if user.age > 17 %}
-    <a href="{% url 'homework:homework_delete' post.pk %}">削除</a>
     {% endif %}
      {% if user.age <= 17 %}
     <a href="{% url 'homework:homework_delete' post.pk %}">完了</a>
@@ -22,6 +29,7 @@
       <td>{{ post.date }}</td>
       <td>{{ post.title }}</td>
       <td>{{ post.text }}</td>
+      <td> <a href="{% url 'homework:homework_delete' post.pk %}">削除</a></td>
     </tr>
     {% endfor %}
   </tbody>

@@ -5,10 +5,11 @@
     {% csrf_token %}
      {% if user.age <= 17 %}
     <p>"{{ post.title }}"の宿題を終えましたか？</p>
+     <input type="submit" value="おわった！">
     {% else %}
     <p>"{{ post.title }}"を削除してもよろしいですか？</p>
+     <input type="submit" value="削除">
     {% endif %}
-    <input type="submit" value="削除">
 
 </form>
 

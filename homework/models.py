@@ -10,6 +10,6 @@ class Post(models.Model):
         return self.name
 
 class Homework(models.Model):
-    image = models.ImageField('宿題', blank=True, null=True, upload_to='homework_images/')
+    image = models.ImageField('しゅくだい', blank=True, null=True, upload_to='homework_images/')
     name = models.CharField('なまえ', max_length=255, null=True)
 
