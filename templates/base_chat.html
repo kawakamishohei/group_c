@@ -19,9 +19,17 @@
             <div class="menu-item">チャット<a class="Link" href="{% url 'chat:chat_list' %}"></a></div>
             <div class="menu-item">話をつくる<a class="Link" href="{% url 'chat:chat_create' %}"></a></div>
             <div class="menu-item">しゅくだい<a class="Link" href="{% url 'homework:homework_list' %}"></a></div>
+            {% if user.age <= 17 %}
             <div class="menu-item">しゅくだい提出<a class="Link" href="{% url 'homework:homework_student' %}"></a></div>
+            {% else %}
+            <div class="menu-item">しゅくだい作成<a class="Link" href="{% url 'homework:homework_create' %}"></a></div>
+            {% endif %}
             <div class="menu-item">じかんわり<a class="Link" href="{% url 'timetable:timetable_list' %}"></a></div>
+            {% if user.age > 17 %}
             <div class="menu-item">じかんわり作成<a class="Link" href="{% url 'timetable:timetable_create' %}"></a></div>
+            {% endif %}
+
+
         </nav>
       </header>
 

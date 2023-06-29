@@ -64,15 +64,27 @@ header {
 .menu-item{
     position:relative;
     width:80%;
-    height:50px;
+    height:10%;
     background-color:#afeeee;
     border:1px solid #2feded;
-    padding: 0px;
-    padding-top:30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     margin: 20px;
     text-align: center;
+    box-shadow　　:-2px -2px 2px #999 inset;　
+    border-radius　 :100px;
 
 }
+.menu-item:hover {
+	background-color: #2feded;
+	color: white;
+}
+.menu-item:active {
+	box-shadow: 2px 2px 2px #999 inset;　
+	color: transparent;
+	text-shadow: 2px 2px 0px #666;　
+}
+
 
 .menu-item .Link{
     display: block;
@@ -82,4 +94,4 @@ header {
     width: 100%;
     height: 100%;
 }
-a
+

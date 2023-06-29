@@ -63,18 +63,6 @@ class ChatCreateView(generic.CreateView):
         initial['upname'] = self.request.user.username
         return initial
 
-# class CommentCreateView(generic.CreateView):
-#     model = Comment
-#     template_name = 'chat/comment_create.html'
-#     form_class = CommentCreateForm
-#
-#     def form_valid(self, form):
-#         comment = form.save(commit=False)
-#         chat = Chat.objects.get(pk=self.kwargs['pk'])
-#         comment.target = chat
-#         form.save()
-#         return redirect('chat:chat_detail',pk = chat.pk)
-
 class ChatDelete(generic.DeleteView):
     # フォームは必要なし
     model = Chat
