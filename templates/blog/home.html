@@ -6,9 +6,11 @@
         <form action ="" method=""GET>
             {{ form.as_div }}<button type="submit" class="nico">検索</button>
         </form>
-<h1>おしらせ</h1>
+<p><h2>おしらせ</h2></p>
+
 {% for kiji in kiji_list %}
-    <h1><a href="{% url 'blog:kiji_detail' kiji.pk %}">{{ kiji.title }}</a></h1>  {{ kiji.text | truncatechars:20 }} / {{ kiji.created_at }}
+<div class="box2">
+        <h3><a href="{% url 'blog:kiji_detail' kiji.pk %}">{{ kiji.title }}</a></h3>  {{ kiji.text | truncatechars:20 }} / {{ kiji.created_at }}
 <!--コンテキスト使わないで表示-->
 {% for tag in kiji.tags.all %}
     {{ tag.name }}
@@ -24,13 +26,15 @@
 <a href="{% url 'blog:kiji_delete' kiji.pk %}">削除</a>
 <a href="{% url 'blog:comment_create' kiji.pk %}">コメント</a>
 </p>
+</div>
+<br>
 {% endfor %}
-</p>
+
 <div class="rightside-contents-form">
-    ログインユーザー <br>{{ user.username }}
-    <h1>メニュー</h1>
-    <a href="{% url 'blog:kiji_create' %}">投稿</a>
+    <div class="box">
+    ログインユーザー <br>{{ user.username }}<br>
     <a href="{% url 'accounts:login' %}">ログアウト</a>
+    </div>
     <p>
     貴方で{{ access_text }}回目のアクセスです
     </p>
@@ -64,7 +68,7 @@
 <div class="rightside-contents-form">
     ログインユーザー <br>{{ user.username }}
     <h1>メニュー</h1>
-    <a href="{% url 'blog:kiji_create' %}">投稿</a>
+
     <a href="{% url 'accounts:login' %}">ログアウト</a>
     <br>
     <p>

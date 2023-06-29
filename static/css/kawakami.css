@@ -6,3 +6,17 @@
   font-family: "Kokoro";
   font-size: 20px;
 }
+.box{
+width: 100%;
+height: 110px;
+background: #afeeee;
+border:1px solid #2feded;
+position: relative;/*親要素に記入*/
+}
+.box2{
+width: 100%;
+height: 100%;
+background: #afeeee;
+border:1px solid #2feded;
+position: relative;/*親要素に記入*/
+}

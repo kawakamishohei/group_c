@@ -28,4 +28,4 @@ class KijiUpdateForm(forms.ModelForm):
 
 
 class SearchForm(forms.Form):
-    keyword = forms.CharField(label='キーワード', required=False)
+    keyword = forms.CharField(label='記事のキーワードをいれてね', required=False)
