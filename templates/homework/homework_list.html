@@ -3,33 +3,39 @@
 {% block content %}
  {% if user.age > 17 %}
 <div class="kokoro">
+  <h1>今週の宿題</h1>
   {% else %}
   <div class ="nico">
+    <h1>こんしゅうのしゅくだい</h1>
     {% endif %}
-<h1>こんしゅうのしゅくだい</h1>
   </div>
-<table class="table" border="1" width="100%">
+<table class="table" border="3" width="100%" bgcolor="#afeeee" bordercolor="#000000">
   <thead>
-    <tr>
-
+    <tr class="nico">
+      {% if user.age <= 17 %}
+      <th>ひづけ</th>
+      <th>きょうか</th>
+      <th>ないよう</th>
+      <th>そうさ</th>
+      {% else %}
       <th>日付</th>
       <th>教科</th>
       <th>内容</th>
       <th>操作</th>
+      {% endif %}
     </tr>
   </thead>
   <tbody>
     {% for post in post_list %}
-    {% if user.age > 17 %}
-    {% endif %}
-     {% if user.age <= 17 %}
-    <a href="{% url 'homework:homework_delete' post.pk %}">完了</a>
-    {% endif %}
     <tr>
       <td>{{ post.date }}</td>
       <td>{{ post.title }}</td>
       <td>{{ post.text }}</td>
+      {% if user.age <= 17 %}
+      <td> <a href="{% url 'homework:homework_delete' post.pk %}">おわった！</a></td>
+      {% else %}
       <td> <a href="{% url 'homework:homework_delete' post.pk %}">削除</a></td>
+      {% endif %}
     </tr>
     {% endfor %}
   </tbody>

@@ -1,11 +1,18 @@
 {% extends 'base_chat.html' %}
 
 {% block content %}
+<style>
+    .homework-image{
+    width:200px;
+    height:auto;}
+</style>
 <h1>宿題提出一覧</h1>
 {% for homework in homework_list %}
-    {{ homework.name }}
+   <p>教科：{{ homework.category }}</p>
+   <p> {{ homework.name }}</p>
+
     {% if homework.image %}
-    <img class="homework-image" src="{{ homework.image.url }}/">
+    <p><img class="homework-image" src="{{ homework.image.url }}/"></p><hr>
     {% endif %}
 {% endfor %}
 {% endblock %}

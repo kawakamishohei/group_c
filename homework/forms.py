@@ -10,5 +10,5 @@ class HomeworkCreateForm(forms.ModelForm):
 
     class Meta:
         model = Homework
-        fields = ('image','name')
+        fields = ('image','name','category')
 

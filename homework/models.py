@@ -1,6 +1,11 @@
 from django.db import models
 from django.utils import timezone
 
+class Category(models.Model):
+    name = models.CharField('きょうか', max_length=255)
+
+    def __str__(self):
+        return self.name
 
 class Post(models.Model):
     date = models.DateTimeField('日付', default=timezone.now)
@@ -11,5 +16,10 @@ class Post(models.Model):
 
 class Homework(models.Model):
     image = models.ImageField('しゅくだい', blank=True, null=True, upload_to='homework_images/')
-    name = models.CharField('なまえ', max_length=255, null=True)
+    name = models.CharField('〇ねん〇くみな〇ばん　なまえ', max_length=255, null=True)
+    category = models.ForeignKey(
+        Category, verbose_name='きょうか',blank=True, null=True,
+        on_delete=models.PROTECT)
+
+
 
