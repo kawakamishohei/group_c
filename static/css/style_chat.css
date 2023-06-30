@@ -1,18 +1,20 @@
 body{
   height: 100%;
   width: 100%;
-  background-color: #f0f8ff;
+  background-color: #ffffe0;
 }
 header {
   top: 0px;
   left: 10px;
   width: 15%;
-  height: 98%;
+  height: 86%;
   padding: 40px;
-  background: linear-gradient(to bottom right, #48d1cc, #ffe0e0);
+  margin: 20px;
+  background: linear-gradient(to bottom right, #ffa500, #ffff66);
   align-items: center;
   position: fixed;
-  box-shadow: inset 0 0 10px 15px #f0f8ff;
+  border: solid 4px #000000;
+  border-radius: 20px;
 }
 
 .title {
@@ -25,40 +27,45 @@ header {
 }
 .main {
   top: 0px;
-  width: 53%;
+  width: 40%;
   height: 1000%;
-  background: linear-gradient(to bottom right, #00ced1, #ffe0e0);
+  background: linear-gradient(to bottom right, #ffa500, #ffff66);
   padding: 70px;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: inset 0 0 10px 15px #f0f8ff;
+  border: solid 4px #000000;
+  border-radius: 20px;
   overflow-x: hidden;
 }
 .rightside-contents {
   top: 0px;
   right: 10px;
   width: 15%;
-  height: 96%;
+  height: 86%;
   float: right;
-  background: linear-gradient(to bottom right, #48d1cc, #ffe0e0);
+  background: linear-gradient(to bottom right, #ffa500, #ffff66);
   align-items: center;
   position: fixed;
-  padding: 20px;
+  padding: 40px;
+  margin: 20px;
   z-index: -1;
-  box-shadow: inset 0 0 10px 15px #f0f8ff;
+  border: solid 4px #000000;
+  border-radius: 20px;
 }
 .rightside-contents-form {
   top: 0px;
   right: 10px;
   width: 15%;
-  height: 96%;
+  height: 86%;
   float: right;
-  background: linear-gradient(to bottom right, #48d1cc, #ffe0e0);
+  background: linear-gradient(to bottom right, #ffa500, #ffff66);
   align-items: center;
   position: fixed;
   padding: 40px;
+  margin: 20px;
   z-index: 1;
-  box-shadow: inset 0 0 10px 15px #f0f8ff;
+  border: solid 4px #000000;
+  border-radius: 20px;
 }
 
 .menu-item{
@@ -66,7 +73,7 @@ header {
     width:80%;
     height:10%;
     background-color:#afeeee;
-    border:1px solid #2feded;
+    border:2px solid #000000;
     padding-top: 10px;
     padding-bottom: 10px;
     margin: 20px;
@@ -95,14 +102,25 @@ header {
     width: 100%;
     height: 100%;
 }
+.ohanasiBox{
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+    margin-buttom: 30px;
+    padding:10px;
+    background: #afeeee;
+    border:2px solid #000000;
+    position: relative;/*親要素に記入*/
+    border-radius: 10px;
 
+}
 
 .button{
     position:relative;
     width:30%;
     height:10%;
     background-color:#afeeee;
-    border:1px solid #2feded;
+    border:2px solid #000000;
     padding-top: 10px;
     padding-bottom: 10px;
     margin-right: auto;
@@ -123,4 +141,8 @@ header {
 	color: transparent;
 	text-shadow: 2px 2px 0px white;
 	background-color: #2ee6e6;
+}
+.chat-image{
+    width:300px;
+    height:auto;
 }

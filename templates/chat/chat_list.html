@@ -4,17 +4,18 @@
 <h1>おはなしいちらん</h1>
 <form action="" method="GET">
   {{ form.as_div }}
-  <button type="submit">検索</button>
+  <button type="submit">おはなしをさがす</button>
 </form>
     {% for chat in chat_list %}
-<div class="ohanasiBox">
-      <h3>
+    <div class="ohanasiBox">
+      <h2>
           <a href="{% url 'chat:chat_detail' chat.pk %}">{{ chat.title }}</a>
-      </h3>
-      {{ chat.text | truncatechars:20}}
+      </h2>
+        <p>{{ chat.created_at|date:'Y/m/d/G:i'}}</p>
+      {{ chat.text | truncatechars:30}}
+    </div>
     {% endfor %}
-</div>
-<hr>
-<a href="{% url 'chat:chat_create' %}">おはなしをつくる</a>
+
+<a class="button" href="{% url 'chat:chat_create' %}">おはなしをつくる</a>
 
 {% endblock %}

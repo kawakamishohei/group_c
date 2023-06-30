@@ -10,15 +10,17 @@
 width: 100%;
 height: 20%;
 background: #afeeee;
-border:1px solid #2feded;
+border:2px solid #000000;
 position: relative;/*親要素に記入*/
+border-radius: 20px;
 }
 .box2{
 width: 100%;
 height: 100%;
 background: #afeeee;
-border:1px solid #2feded;
+border:2px solid #000000;
 position: relative;/*親要素に記入*/
+border-radius: 10px;
 }
 .box3{
 width: 40%;

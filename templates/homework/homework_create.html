@@ -5,7 +5,7 @@
 <h1>宿題作成</h1>
   </div>
 <form action="" method="POST">
-  <table class="table" border="3" width="100%" bgcolor="#f5f5f5" bordercolor="#ff8c00">
+  <table class="table" border="3" width="100%" bgcolor="#afeeee" bordercolor="#000000">
       <tr>
         <th>教科</th>
         <td>{{ form.title }}</td>
@@ -19,7 +19,7 @@
           <td>{{ form.date }}</td>
       </tr>
   </table>
-  <button type="submit" class="btn btn-primary">送信</button>
+  <button type="submit" class="button">送信</button>
   {% csrf_token %}
 </form>
 {% endblock %}

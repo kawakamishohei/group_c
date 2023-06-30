@@ -1,6 +1,5 @@
 {% extends 'base_chat.html' %}
 {% block content %}
-
     <h1>{{ chat.title }}</h1>
     <p>投稿者：{{ chat.upname }}</p>
     {% if chat.image %}
@@ -21,21 +20,31 @@
     <hr>
 
 {% for comment in chat.comment_set.all %}
-    <div>
-        <p>{{ comment.name }}</p>
+    <div class="ohanasiBox">
+        <h2>{{ comment.name }}</h2>
         <p>{{ comment.text | linebreaks }}</p>
     </div>
     <hr>
 {% endfor %}
 
 <!-- コメント機能 -->
+{% if user.age > 17 %}
 <div class="rightside-contents-form">
     <form action="" method="POST">
       {% csrf_token %}
       {{ form.as_div }}
-      <button type="submit">送信</button>
+      <button class="button" type="submit">送信</button>
     </form>
 </div>
+{% else %}
+<div class="rightside-contents-form">
+    <form action="" method="POST">
+      {% csrf_token %}
+      {{ form.as_div }}
+      <button class="button" type="submit">おくる</button>
+    </form>
+</div>
+{% endif %}
 <!-- ここまで -->
 
 <!--<a href="{% url 'chat:chat_list' %}">いちらんにもる</a>-->
