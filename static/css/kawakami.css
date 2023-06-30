@@ -27,3 +27,13 @@ background: #afeeee;
 border:1px solid #2feded;
 position: relative;/*親要素に記入*/
 }
+.logo{
+z-index: 100;
+width: 100%;
+height: 13%;
+}
+.logo2{
+z-index: 100;
+width: 20%;
+height: 7%;
+}
