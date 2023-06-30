@@ -16,15 +16,13 @@ class TimetableCreateView(CreateView):
     success_url = reverse_lazy('timetable:timetable_list')
     form_class = TimetableCreateForm
 
-    def post(self, request, *args, **kwargs):
-        form = TimetableCreateForm(request.POST)
+    def users(request, user_age):
+        user = get_object_or_404(User, pk=user_age)
+        context2 = {
+            'user': user,
+        }
+        return context2
 
-        if form.is_valid():
-            form.save()
-
-        print(form.errors)
-
-        return redirect("timetable:timetable_list")
 
 class TimetableView(View):
     model = Timetable
@@ -88,17 +86,6 @@ class TimetableView(View):
 
         return render(request, "timetable/timetable_list.html", context)
 
-    def post(self, request, *args, **kwargs):
-
-        form = TimetableCreateForm(request.POST)
-
-        if form.is_valid():
-            form.save()
-
-        print(form.errors)
-
-        return redirect("timetable:timetable_list")
-
 index = TimetableView.as_view()
 
 class TimetableDeleteView(DeleteView):
@@ -106,29 +93,23 @@ class TimetableDeleteView(DeleteView):
     template_name = 'timetable/timetable_delete.html'
     success_url = reverse_lazy('timetable:timetable_list')
 
-    def post(self, request, *args, **kwargs):
-        form = TimetableCreateForm(request.POST)
-
-        if form.is_valid():
-            form.save()
-
-        print(form.errors)
-
-        return redirect("timetable:timetable_list")
+    def users(request, user_age):
+        user = get_object_or_404(User, pk=user_age)
+        context2 = {
+            'user': user,
+        }
+        return context2
 
 class TimetableDetailView(DetailView):
     model = Timetable
     template_name = 'timetable/timetable_detail.html'
 
-    def post(self, request, *args, **kwargs):
-        form = TimetableCreateForm(request.POST)
-
-        if form.is_valid():
-            form.save()
-
-        print(form.errors)
-
-        return redirect("timetable:timetable_list")
+    def users(request, user_age):
+        user = get_object_or_404(User, pk=user_age)
+        context2 = {
+            'user': user,
+        }
+        return context2
 
 class TimetableUpdateView(UpdateView):
     model = Timetable
@@ -136,15 +117,12 @@ class TimetableUpdateView(UpdateView):
     template_name = 'timetable/timetable_update.html'
     success_url = reverse_lazy('timetable:timetable_list')
 
-    def post(self, request, *args, **kwargs):
-        form = TimetableCreateForm(request.POST)
-
-        if form.is_valid():
-            form.save()
-
-        print(form.errors)
-
-        return redirect("timetable:timetable_list")
+    def users(request, user_age):
+        user = get_object_or_404(User, pk=user_age)
+        context2 = {
+            'user': user,
+        }
+        return context2
 
 class SubjectCreateView(CreateView):
     model = Subject
@@ -159,6 +137,13 @@ class SubjectListView(ListView):
 class LunchmenuDetailview(DetailView):
     model = Timetable
     template_name = 'timetable/lunchmenu_detail.html'
+
+    def users(request, user_age):
+        user = get_object_or_404(User, pk=user_age)
+        context2 = {
+            'user': user,
+        }
+        return context2
 #
 # class LunchmenuCreateView(CreateView):
 #     model = Lunchmenu

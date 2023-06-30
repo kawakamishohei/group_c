@@ -5,14 +5,13 @@
   <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
       {{ form.as_p }}
-      <div class="rightside-contents-form" align="center">
-        <input type="submit" id="save" value="更新" class="button">
+      <div align="center">
+          <input type="submit" id="save" value="更新" class="yk-button">
       </div>
   </form>
-    <br>
-    <div class="rightside-contents-form" align="center">
-       <a href="{% url 'timetable:timetable_list' %}">
-           <input type="submit" value="キャンセル" class="button">
+    <div align="center">
+         <a href="{% url 'timetable:timetable_list' %}">
+           <input type="submit" value="キャンセル" class="yk-button">
        </a>
     </div>
 </div>

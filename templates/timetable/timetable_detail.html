@@ -4,65 +4,65 @@
 {% if user.age < 17 %}
     <div class="nico">
         <h1 align="center">{{ timetable.day }}のじかんわり</h1>
-        <table border="3" width="300" height="500" align="center">
-            <tr align="center" valign="center">
+        <table border="3" bordercolor="#00bfff" width="400" height="500" align="center">
+            <tr bgcolor="#00ffff" align="center" valign="center">
                 <th></th>
                 <th>じゅぎょう</th>
                 <th >ないよう</th>
             </tr>
-            <tr align="center" valign="center">
+            <tr bgcolor="#f5f5f5"  align="center" valign="center">
                 <td colspan="3">あさのかい</td>
             </tr>
-            <tr align="center" valign="center">
+            <tr bgcolor="#f5f5f5"  align="center" valign="center">
                 <td>１じかんめ</td>
                 <td>{{ timetable.FirstPeriod }}</td>
                 <td>{{ timetable.firsttext }}</td>
             </tr>
-            <tr align="center" valign="center">
+            <tr bgcolor="#f5f5f5"  align="center" valign="center">
                 <td>２じかんめ</td>
                 <td>{{ timetable.SecondPeriod }}</td>
                 <td>{{ timetable.secondtext }}</td>
             </tr>
-            <tr align="center" valign="center">
+            <tr bgcolor="#f5f5f5"  align="center" valign="center">
                 <td>３じかんめ</td>
                 <td>{{ timetable.ThirdPeriod }}</td>
                 <td>{{ timetable.thirdtext }}</td>
             </tr>
-            <tr align="center" valign="center">
+            <tr bgcolor="#f5f5f5"  align="center" valign="center">
                 <td>４じかんめ</td>
                 <td>{{ timetable.FourthPeriod }}</td>
                 <td>{{ timetable.fourthtext }}</td>
             </tr>
-            <tr align="center" valign="center">
+            <tr bgcolor="#f5f5f5"  align="center" valign="center">
                 <td colspan="3">きゅうしょく</td>
             </tr>
-            <tr align="center" valign="center">
+            <tr bgcolor="#f5f5f5"  align="center" valign="center">
                 <td colspan="3">ひるやすみ</td>
             </tr>
-            <tr align="center" valign="center">
+            <tr bgcolor="#f5f5f5"  align="center" valign="center">
                 <td>５じかんめ</td>
                 <td>{{ timetable.FifthPeriod }}</td>
                 <td>{{ timetable.fifthtext }}</td>
             </tr>
-            <tr align="center" valign="center">
+            <tr bgcolor="#f5f5f5"  align="center" valign="center">
                 <td>６じかんめ</td>
                 <td>{{ timetable.SixthPeriod }}</td>
                 <td>{{ timetable.sixthtext }}</td>
             </tr>
-            <tr align="center" valign="center">
+            <tr bgcolor="#f5f5f5"  align="center" valign="center">
                 <td colspan="3">そうじ</td>
             </tr>
-            <tr align="center" valign="center">
+            <tr bgcolor="#f5f5f5"  align="center" valign="center">
                 <td colspan="3">おわりのかい</td>
             </tr>
         </table>
         <br>
         <br>
-        <table border="3" width="500" height="200" align="center">
-            <tr>
+        <table border="3" bordercolor="#00bfff" width="500" height="200" align="center">
+            <tr bgcolor="#00ffff">
                 <th>ひつようなもの</th>
             </tr>
-            <tr>
+            <tr bgcolor="#f5f5f5">
                 <td>{{ timetable.text | linebreaksbr }}</td>
             </tr>
         </table>
@@ -72,7 +72,7 @@
             </p>
             <p>
                 <a href="{% url 'timetable:timetable_list'　%}">
-                    <input type="submit" value="じかんわりいちらんにもどる" class="button">
+                    <input type="submit" value="じかんわりいちらんにもどる" class="yk-button">
                 </a>
             </p>
         </div>
@@ -80,65 +80,65 @@
 {% else %}
     <div class="kokoro">
         <h1 align="center">{{ timetable.day }}の時間割</h1>
-        <table border="3" width="300" height="500" align="center">
-            <tr align="center" valign="center">
+        <table border="4" bordercolor="#00bfff" width="400" height="500" align="center">
+            <tr bgcolor="#00ffff" align="center" valign="center">
                 <th></th>
                 <th>授業</th>
                 <th >内容</th>
             </tr>
-            <tr align="center" valign="center">
+            <tr bgcolor="#f5f5f5" align="center" valign="center">
                 <td colspan="3">朝の会</td>
             </tr>
-            <tr align="center" valign="center">
+            <tr bgcolor="#f5f5f5" align="center" valign="center">
                 <td>１時間目</td>
                 <td>{{ timetable.FirstPeriod }}</td>
                 <td>{{ timetable.firsttext }}</td>
             </tr>
-            <tr align="center" valign="center">
+            <tr bgcolor="#f5f5f5" align="center" valign="center">
                 <td>２時間目</td>
                 <td>{{ timetable.SecondPeriod }}</td>
                 <td>{{ timetable.secondtext }}</td>
             </tr>
-            <tr align="center" valign="center">
+            <tr bgcolor="#f5f5f5" align="center" valign="center">
                 <td>３時間目</td>
                 <td>{{ timetable.ThirdPeriod }}</td>
                 <td>{{ timetable.thirdtext }}</td>
             </tr>
-            <tr align="center" valign="center">
+            <tr bgcolor="#f5f5f5" align="center" valign="center">
                 <td>４時間目</td>
                 <td>{{ timetable.FourthPeriod }}</td>
                 <td>{{ timetable.fourthtext }}</td>
             </tr>
-            <tr align="center" valign="center">
+            <tr bgcolor="#f5f5f5" align="center" valign="center">
                 <td colspan="3">給食</td>
             </tr>
-            <tr align="center" valign="center">
+            <tr bgcolor="#f5f5f5" align="center" valign="center">
                 <td colspan="3">昼休み</td>
             </tr>
-            <tr align="center" valign="center">
+            <tr bgcolor="#f5f5f5" align="center" valign="center">
                 <td>５時間目</td>
                 <td>{{ timetable.FifthPeriod }}</td>
                 <td>{{ timetable.fifthtext }}</td>
             </tr>
-            <tr align="center" valign="center">
+            <tr bgcolor="#f5f5f5" align="center" valign="center">
                 <td>６時間目</td>
                 <td>{{ timetable.SixthPeriod }}</td>
                 <td>{{ timetable.sixthtext }}</td>
             </tr>
-            <tr align="center" valign="center">
+            <tr bgcolor="#f5f5f5" align="center" valign="center">
                 <td colspan="3">掃除</td>
             </tr>
-            <tr align="center" valign="center">
+            <tr bgcolor="#f5f5f5" align="center" valign="center">
                 <td colspan="3">終わりの会</td>
             </tr>
         </table>
         <br>
         <br>
-        <table border="3" width="500" height="200" align="center">
-            <tr>
+        <table border="3" bordercolor="#00bfff" width="500" height="200" align="center">
+            <tr bgcolor="#00ffff">
                 <th>必要な物</th>
             </tr>
-            <tr>
+            <tr bgcolor="#f5f5f5" >
                 <td>{{ timetable.text | linebreaksbr }}</td>
             </tr>
         </table>
@@ -148,7 +148,7 @@
             </p>
             <p>
                 <a href="{% url 'timetable:timetable_list'　%}">
-                    <input type="submit" value="時間割一覧に戻る" class="button">
+                    <input type="submit" value="時間割一覧に戻る" class="yk-button">
                 </a>
             </p>
         </div>
