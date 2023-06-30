@@ -4,12 +4,12 @@
     <div class="nico">
        <h1 align="center">じかんわりいちらんページ</h1>
         <div class="col-8">
-            <table border="3" align="center" width="300" height="200">
-            <tr align="center">
+            <table border="3" bordercolor="#00bfff" align="center" width="300" height="200">
+            <tr bgcolor="#00ffff" align="center">
                 <th>ひづけ</th>
             </tr>
             {% for timetable in timetable %}
-                <tr align="center">
+                <tr bgcolor="#f5f5f5" align="center">
                     <div class="border">
                         <td><a href="{% url 'timetable:timetable_detail' timetable.id %}">{{ timetable.day }}</a></td>
                     </div>
@@ -34,14 +34,14 @@
     <div class="kokoro">
         <h1 align="center">時間割一覧ページ</h1>
         <div class="col-8">
-            <table border="3" align="center" width="300" height="200">
-            <tr align="center">
+            <table border="3" bordercolor="#00bfff" align="center" width="300" height="200">
+            <tr bgcolor="#00ffff" align="center">
                 <th>日付</th>
                 <th>更新</th>
                 <th>削除</th>
             </tr>
             {% for timetable in timetable %}
-                <tr align="center">
+                <tr bgcolor="#f5f5f5" align="center">
                     <div class="border">
                         <td><a href="{% url 'timetable:timetable_detail' timetable.id %}">{{ timetable.day }}</a></td>
                             <td><a href="{% url 'timetable:timetable_update' timetable.id %}">更新</a></td>
@@ -64,7 +64,7 @@
             <p align="center">新規作成</p>
             <p align="center">
                 <a href="{% url 'timetable:timetable_create' %}">
-                    <input type="submit" value="時間割を作成" class="button">
+                    <input type="submit" value="時間割を作成" class="yk-button">
                 </a>
             </p>
         </div>

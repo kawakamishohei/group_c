@@ -9,7 +9,7 @@ class AccountCreateView(generic.CreateView):
     Model = CustomUser  # カスタムユーザーにする
     form_class = MyUserCreationForm
     template_name = 'accounts/accounts_create.html'
-    success_url = reverse_lazy('accounts:create')
+    success_url = reverse_lazy('accounts:login')
 
 
 class Login(LoginView):

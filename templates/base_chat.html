@@ -15,12 +15,11 @@
   {% if user.age > 17 %}
     <div class ="kokoro">
         <header>
-        <img src="/static/weblogo2.png" class="logo">
+            <a href="{% url 'blog:home' %}"> <img src="/static/weblogo2.png" class="logo" ></a>
         <nav class="nav">
-            <div class="menu-item">トップページ<a class="Link" href="{% url 'blog:home' %}"></a></div>
             <div class="menu-item">記事作成<a class="Link" href="{% url 'blog:kiji_create' %}"></a></div>
-            <div class="menu-item">チャット<a class="Link" href="{% url 'chat:chat_list' %}"></a></div>
-            <div class="menu-item">話をつくる<a class="Link" href="{% url 'chat:chat_create' %}"></a></div>
+            <div class="menu-item">スレッド一覧<a class="Link" href="{% url 'chat:chat_list' %}"></a></div>
+            <div class="menu-item">スレッドを立てる<a class="Link" href="{% url 'chat:chat_create' %}"></a></div>
             <div class="menu-item">宿題一覧<a class="Link" href="{% url 'homework:homework_list' %}"></a></div>
             <div class="menu-item">提出一覧<a class="Link" href="{% url 'homework:homework_teacher' %}"></a></div>
             <div class="menu-item">宿題作成<a class="Link" href="{% url 'homework:homework_create' %}"></a></div>
@@ -32,10 +31,9 @@
 　{% else %}
     <div class="nico">
         <header>
-        <img src="/static/weblogo2.png" class="logo">
+            <a href="{% url 'blog:home' %}"><img src="/static/weblogo2.png" class="logo"></a>
         <nav class="nav">
-            <div class="menu-item">トップページ<a class="Link" href="{% url 'blog:home' %}"></a></div>
-            <div class="menu-item">おはなし<a class="Link" href="{% url 'chat:chat_list' %}"></a></div>
+            <div class="menu-item">おはなしいちらん<a class="Link" href="{% url 'chat:chat_list' %}"></a></div>
             <div class="menu-item">おはなしつくる<a class="Link" href="{% url 'chat:chat_create' %}"></a></div>
             <div class="menu-item">しゅくだい<a class="Link" href="{% url 'homework:homework_list' %}"></a></div>
             <div class="menu-item">しゅくだいていしゅつ<a class="Link" href="{% url 'homework:homework_student' %}"></a></div>

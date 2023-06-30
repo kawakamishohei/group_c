@@ -1,4 +1,4 @@
-.yk-button {
+.yyk-button {
     display: inline-block;
     color: #fff;
     background: linear-gradient(to bottom, #00acee, #0072e0);
@@ -10,13 +10,13 @@
     text-decoration: none;
     cursor: pointer;
 }
-.yk-button--outline {
+.yyk-button--outline {
     background: transparent;
     color: var(--color-brand-primary);
     border-color: var(--color-brand-primary);
 }
 
-.yk-button:hover {
+.yyk-button:hover {
     color: #000000;
      background: linear-gradient(to bottom, #7fffd4, #00ffff);
 }
@@ -54,3 +54,32 @@
     color: #000000;
     background: linear-gradient(to bottom, #7fffd4, #00ffff);
 }
+
+.yk-button{
+    display: inline-block;
+    position:relative;
+    width:100%;
+    height:10%;
+    background-color:#afeeee;
+    border:1px solid #2feded;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: -2px -2px 2px #999 inset;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.yk-button:hover {
+	background-color: #2feded;
+	color: white;
+}
+.yk-button:active {
+	box-shadow: 2px 2px 2px #999 inset;
+	color: transparent;
+	text-shadow: 2px 2px 0px white;
+	background-color: #2ee6e6;
+}}
