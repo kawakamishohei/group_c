@@ -32,6 +32,7 @@
 
 <div class="rightside-contents-form">
     <div class="box">
+    <br>
     ログインユーザー <br>{{ user.username }}<br>
     <a href="{% url 'accounts:login' %}">ログアウト</a>
     </div>
@@ -70,8 +71,9 @@
 </p>
 <div class="rightside-contents-form">
     <div class="box">
-    ログインユーザー <br>{{ user.username }}<br>
     <br>
+    ログインユーザー <br>{{ user.username }}<br>
+    <br><br>
     <a href="{% url 'accounts:login' %}">ログアウト</a>
     </div>
     <p>
